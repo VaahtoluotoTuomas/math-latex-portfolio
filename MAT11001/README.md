@@ -17,8 +17,8 @@ All documents in this folder have been typeset using **LaTeX** to ensure clean, 
 
 | Assignment | LaTeX Source | Compiled PDF |
 | :--- | :--- | :--- |
-| Weekly Exercise 1 | [`exercise_week_1.tex`](./exercise_week_1.tex) | 📄 [`exercise_week_1.pdf`](./exercise_1.pdf) |
-| Weekly Exercise 2 | [`exercise_week_2.tex`](./exercise_week_2.tex) | 📄 [`exercise_week_2.pdf`](./exercise_2.pdf) |
+| Weekly Exercise 1 | [`exercise_week_1.tex`](./exercise_week_1.tex) | 📄 [`exercise_week_1.pdf`](./exercise_week_1.pdf) |
+| Weekly Exercise 2 | [`exercise_week_2.tex`](./exercise_week_2.tex) | 📄 [`exercise_week_2.pdf`](./exercise_week_2.pdf) |
 | Weekly Exercise 3 | [`exercise_week_3.tex`](./exercise_week_3.tex) | 📄 [`exercise_week_3.pdf`](./exercise_week_3.pdf) |
 | Weekly Exercise 4 | [`exercise_week_4.tex`](./exercise_week_4.tex) | 📄 [`exercise_week_4.pdf`](./exercise_week_4.pdf) |
 | Weekly Exercise 5 | [`exercise_week_5.tex`](./exercise_week_5.tex) | 📄 [`exercise_week_5.pdf`](./exercise_week_5.pdf) |
