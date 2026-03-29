@@ -1,0 +1,248 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{4}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+Ennen n\"aiden teht\"avien tekemist\"a kannattaa tehd\"a viikon $3$ verkkoteht\"av\"at, jotka johdattelevat viikon aiheeseen.
+Kaikki teht\"av\"at palautetaan Moodlessa vertaisarviointiin yhten\"a pdf-tiedostona. \\
+
+\begin{enumerate}
+
+\item M\"a\"aritell\"a\"an joukot $A=\{3,4,5,8\}$ ja $B=\{1,3,5,7,9\}$.
+Onko olemassa kuvaus, joka on 
+\begin{enumerate}
+    \item injektio joukolta $A$ joukolle $B$?
+
+    \textbf{Vastaus:} On olemassa. Kaikki joukon A alkiot kuvautuvat kukin vain ja ainoastaan yhteen joukon B alkioon, koska joukossa A on vähemmän alkioita kuin B:ssä ($4<5$). Siksi kullekin A:n alkiolle löytyy pari B:stä.
+    
+    \item injektio joukolta $B$ joukolle $A$?
+
+    \textbf{Vastaus:} Ei ole olemassa. Joukon B alkiot eivät voi kuvautua kukin vain ja ainoastaan yhteen joukon A alkioon, koska B:ssä on enemmän alkioita kuin A:ssa ($5>4$). Siksi kaikille B:n alkioille ei löydy omaa, ainutlaatuista paria A:sta.
+    
+    \item surjektio joukolta $A$ joukolle $B$?
+
+    \textbf{Vastaus:} Ei ole olemassa. Joukossa A on vähemmän alkioita kuin B:ssä, eikä funktio voi haarautua niin, että neljä alkioita voisi kattaa viiden alkion joukon.
+    
+    \item surjektio joukolta $B$ joukolle $A$?
+
+    \textbf{Vastaus:} On olemassa. Voisi olla funktio, jossa joukon B alkiot peittävät kaikki joukon A alkiot, koska B:ssä on enemmän alkioita kuin A:ssa. Esim. B:n neljä ensimmäistä alkioita voisivat kuvautua A:n neljäksi ensimmäiseksi alkioksi, jolloin surjektion ehto täyttyy. Viides alkio taas voi kuvautua mihin tahansa A:n alkioon, ilman että surjektio menee rikki.
+    
+\end{enumerate}
+Vastaa  hyvin lyhyesti perustellen. \\
+
+\item Olkoon $A=\{1,2,3\}$ ja $B=\{1,2,3,4,5,6\}$.
+\begin{enumerate}
+\item Anna esimerkki injektiosta $A \to B$ sekä funktiosta $A \to B$, joka ei ole injektio.
+
+\textbf{Vastaus:} 
+
+Injektio: $f: A \rightarrow B$, jolla
+\begin{equation*}
+    f(x)=2x.
+\end{equation*}
+
+Ei-injektio: $f: A \rightarrow B$, jolla
+\begin{equation*}
+    f(x)=1.
+\end{equation*}
+
+\item Montako injektiota $A$:sta $B$:hen on olemassa?
+
+\textbf{Vastaus:} 120. Lasketaan $6\cdot 5 \cdot 4 = 120$, eli mahdollisten permutaatioiden lukumäärä. 
+
+\item Anna esimerkki surjektiosta $B \to A$ sekä funktiosta $B \to A$, joka ei ole surjektio.
+
+\textbf{Vastaus:} 
+
+Surjektio: $f: B \rightarrow A$, jolla
+\begin{equation*}
+f(x)=
+\begin{cases}
+    1, & \text{kun } x = 1 \text{ tai } x = 2 \\
+    2, & \text{kun } x = 3 \text{ tai } x = 4 \\
+    3, & \text{kun } x = 5 \text{ tai } x = 6 \\
+\end{cases}
+\end{equation*}
+
+Ei-surjektio:  $f: B \rightarrow A$, jolla
+\begin{equation*}
+    f(x)=1.
+\end{equation*}
+
+\item Olkoon $f:\mathbb{R} \to \mathbb{R}, \; f(x)=x^2$. Osoita vastaesimerkillä, että funktio ei ole injektio eikä surjektio. \\
+\end{enumerate}
+
+\textbf{Vastaus:} 
+
+\underline{Injektio:} Kun $x=1$, palauttaa funktio arvon $1$, koska $1^2=1$. Kun taas $x=-1$, palauttaa funktio myös arvon $1$, koska $(-1)^2=1$. Eri lähtöarvot voivat siis saada samoja maaliarvoja, joten funktio ei ole injektio.  
+
+\underline{Surjektio:} Lähtö- ja maalijoukon määritelmän mukaan kuvauksen pitäisi pystyä kattamaan kaikki reaaliluvut. Jos x:lle annetaan negatiivinen arvo (esim. $x=-1$ , $(-1)^2 = 1$), huomataan, ettei toinen potenssi voi koskaan palauttaa negatiivista arvoa; täten funktio ei voi olla surjektio, koska se ei kata negatiivisia reaalilukuja. 
+
+
+
+\item Ovatko seuraavat kuvaukset injektioita? Ent\"a surjektioita? Perustele vastauksesi.
+\begin{enumerate}
+\item $f: \mathbb{Z} \to \mathbb{Z}$, $f(z)=\vert z \vert$
+
+\textbf{Vastaus:} 
+
+\underline{Injektio:} Ei ole injektio. Kun $z=1$, palauttaa funktio arvon $1$, koska $|1|=1$. Kun taas $z=-1$, palauttaa funktio myös arvon $1$, koska $|-1|=1$. Eri lähtöarvot voivat siis saada samoja maaliarvoja, joten funktio ei ole injektio. 
+
+\underline{Surjektio:} Ei ole surjektio. Lähtö- ja maalijoukon määritelmän mukaan kuvauksen pitäisi pystyä kattamaan kaikki kokonaisluvut. Jos z:lle annetaan negatiivinen arvo (esim. $z=-1$ , $|-1| = 1$), huomataan, ettei itseisarvo voi koskaan palauttaa negatiivista arvoa; täten funktio ei voi olla surjektio, koska se ei kata negatiivisia kokonaislukuja. 
+
+\item $f: \mathbb{Z} \to \mathbb{N}$, $f(z)=\vert z \vert$. \\
+\end{enumerate}
+
+\textbf{Vastaus:} 
+
+\underline{Injektio:} Ei ole injektio. Kun $z=1$, palauttaa funktio arvon $1$, koska $|1|=1$. Kun taas $z=-1$, palauttaa funktio myös arvon $1$, koska $|-1|=1$. Eri lähtöarvot voivat siis saada samoja maaliarvoja, joten funktio ei ole injektio. 
+
+\underline{Surjektio:} On surjektio. Kun käydään läpi kaikkien kokonaislukujen itseisarvot, tullaan samalla käyneeksi läpi kaikkien luonnollisten lukujen itseisarvot. Esimerkiksi lukuun 5 osutaan kun asetetaan lähtöarvoksi 5 tai -5 (surjektion tapauksessa ei haittaa, vaikka samat kaksi lähtöarvoa saisivat saman palautusarvon). Funktio siis kattaa kaikki maaliarvot. 
+
+\item Merkit\"a\"an $p\mathbb{N}=\{pn \, | \, n \in \mathbb{N}\}$, kun $p$ on jokin luonnollinen luku.
+Osoita, ett\"a seuraavat kuvaukset ovat bijektioita:
+\begin{enumerate}
+\item $f: 3\mathbb{N} \to 5\mathbb{N}$, $f(n)=(5/3)n$,
+
+\textbf{Vastaus:} Ratkaistaan kuvaukselle käänteiskuvaus $f^{-1}$. Asetetaan $y=f(n)$ ja vaihdetaan muuttujat ($n \leftarrow y$):
+\begin{align*}
+    n&=\frac{5}{3}y\\
+     3n&=5y\\
+     y&=\frac{3}{5}n.
+\end{align*}
+Saadaan ehdotus käänteiskuvaukseksi: $f^{-1}(n) = \frac{3}{5}n$. Kun $n \in 5\N$, eli $n$ on jaollinen viidellä, niin lausekkeeseen $\frac{3}{5}n$ voidaan sijoittaa n:n paikalle $5k$, jolloin se supistuu kokonaisluvuksi, joka on jaollinen kolmella. Käänteiskuvaus osuu siis oikeaan lähtöjoukkoon $3\N$. Koska funktiolla on käänteiskuvaus $f^{-1} = \frac{3}{5}n$, funktion $f$ täytyy olla bijektio.  
+
+\item $f:  3\mathbb{N} \setminus \{0,3\} \to 5\mathbb{N}$, $f(n)=5(n-6)/3$.
+
+\textbf{Vastaus:} Ratkaistaan käänteiskuvaus $f^{-1}$. Asetetaan $f(n)=y$ ja vaihdetaan $n\leftarrow y$
+\begin{align*}
+    n&=5(y-6)/3 \\
+    3n&=5(y-6)\\
+    3n&=5y-5\cdot 6\\
+    3n+5\cdot 6&=5y\\
+    \frac{3n}{5}+\frac{5\cdot 6}{5}&=y\\
+    y&=\frac{3n}{5}+6.    
+\end{align*}
+Saadaan ehdotus käänteiskuvaukseksi: $f^{-1}=\frac{3n}{5}+6$. Kun $n\in 5\N$ (eli n jaollinen viidellä koska käänteiskuvauksen lähtöjoukko on $5\N$), voidaan lausekkeeseen sijoittaa n:n paikalle $5k$, jolloin lausekkeen arvoksi saadaan luonnollisia lukuja, jotka kuuluvat joukkoon $3\N \setminus \{0,3\}$ ja ovat vähintään 6. Käänteiskuvaus osuu siis oikeaan lähtöjoukkoon $3\N$. Koska funktiolla on käänteiskuvaus, täytyy funktion olla bijektio. 
+
+\end{enumerate}
+Miksi b)-kohdassa t\"aytyy rajata luvut $0$ ja $3$ pois m\"a\"arittelyjoukosta?
+
+\textbf{Vastaus:} b)-kohdassa täytyi rajata luvut 0 ja 3 pois, koska ne ovat ainoa luonnolliset luvut, jotka tuottaisivat kuvauksella negatiivisia arvoja, eivätkä negatiiviset arvot sovi kuvauksen maalijoukkoon. 
+
+\item Olkoon $X$ joukko ja olkoot $f: X \to X$ ja $g: X \to X$ bijektioita.
+Etsi sellaiset bijektiot $u: X \to X$ ja $v: X \to X$,
+ett\"a $u \circ f=g$ ja $f \circ v=g$. Perustele vastauksesi todistamalla t\"asm\"allisesti, ett\"a l\"oyt\"am\"asi kuvaukset ovat bijektioita ja halutut yht\"asuuruudet p\"atev\"at. 
+
+\textbf{Vastaus:} Koska $f$ ja $g$ ovat bijektioita, niille on käänteiskuvaukset $f^{-1}$ ja $g^{-1}$.
+
+Kerrotaan yhtälö $u\circ f = g$ molemmin puolin $f$:n käänteisfunktiolla $f^{-1}$:
+\begin{align*}
+    u\circ f\circ f^{-1} &= g\circ  f^{-1}\\
+    u &= g\circ  f^{-1}.
+\end{align*}
+
+Tehdään vastaava operaatio yhtälölle $f \circ v=g$:
+\begin{align*}
+    f^{-1}\circ f \circ v &=f^{-1}\circ g\\
+    v &= f^{-1}\circ g
+\end{align*}
+
+Nyt meillä on funktiot:
+\begin{itemize}
+    \item $u = g \circ f^{-1}$
+    \item $v = f^{-1} \circ g$
+\end{itemize}
+
+Tarkistetaan, että nämä toteuttavat annetut ehdot: 
+\begin{align*} 
+    u \circ f &= (g \circ f^{-1}) \circ f = g \circ f^{-1} \circ f = g \circ \text{id}_X = g. \quad \text{(OK)} \\ 
+    f\circ v &=f\circ (f^{-1} \circ g)=f\circ f^{-1} \circ g = \text{id}_X\circ g = g. \quad \text{(OK)}
+\end{align*}
+
+Osoitetaan, että löydetyt kuvaukset ovat bijektioita. Tiedämme oletuksesta, että $f$ ja $g$ ovat bijektioita. Tiedämme myös, että bijektion käänteiskuvaus on bijektio (joten $f^{-1}$ on bijektio). Lisäksi tiedämme, että kahden bijektion yhdistetty kuvaus on bijektio.
+
+Koska $u = g \circ f^{-1}$ on kahden bijektion ($g$ ja $f^{-1}$) yhdistetty kuvaus, on $u$ bijektio. Samalla tavalla $v = f^{-1} \circ g$ on kahden bijektion ($f^{-1}$ ja $g$) yhdistetty kuvaus, joten myös $v$ on bijektio.
+
+\item
+Laske
+\begin{enumerate}
+\item $2e^{\pi i/3}\cdot 3e^{\pi i /2}$
+
+\textbf{Vastaus:} 
+\begin{align*}
+    2e^{\pi i/3}\cdot 3e^{\pi i /2}&=2\cdot 3e^{(\frac{\pi}{3}+\frac{\pi}{2})i} \\
+    &=6e^{(\frac{2\pi}{6}+\frac{3\pi}{6})i}\\
+    &=6e^{\frac{5\pi}{6}i}
+\end{align*}
+
+\item $\frac{4e^{\pi i/3}}{2e^{\pi i /2}}$
+
+\textbf{Vastaus:}
+\begin{align*}
+    \frac{4e^{\pi i/3}}{2e^{\pi i /2}}&=\frac{4}{2}e^{(\frac{\pi}{3}-\frac{\pi}{2})i}\\
+    &=2e^{(\frac{2\pi}{6}-\frac{3\pi}{6})i}\\
+    &=2e^{-\frac{\pi}{6}i}
+\end{align*}
+
+\item $(3e^{2\pi i/3})^4$
+
+\textbf{Vastaus:}
+\begin{align*}
+    (3e^{2\pi i/3})^4&=81e^{\frac{2\pi i}{3}\cdot 4}\\
+    &=81e^{\frac{8\pi}{3}i}\\
+    &=81e^{\frac{8\pi}{3}i}
+\end{align*}
+
+\item luvun $e^{3\pi i/4}$ liittoluku.
+
+\textbf{Vastaus:}
+\begin{align*}
+    e^{3\pi i/4}&=\left(\cos\left(\frac{3\pi}{4}\right)+i\,\sin\left(\frac{3\pi}{4}\right)\right)\\
+    &=-\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\\
+\end{align*}
+Liittoluku saadaan vaihtamalla imaginääriosan etumerkki, jolloin liittoluvuksi saadaan $ -\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}i$.
+
+P.S. Tajusin tämän laskemisen jälkeen, että ilmeisesti luvun eksponenttimuodossa olevan luvun $e^{3\pi i/4}$ liittoluku voidaan ottaa myös vain vaihtamalla eksponentin etumerkkiä. Tällöin liittoluvun voisi kirjoittaa myös $e^{-3\pi i/4}$.
+
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

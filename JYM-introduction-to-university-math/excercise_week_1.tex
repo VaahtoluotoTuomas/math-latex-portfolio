@@ -1,0 +1,211 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{1}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+%\title{Johdatus yliopistomatematiikkaan}\author{1. Harjoitukset}
+%\begin{document}
+\otsikko
+\textbf{VASTAUKSET: TUOMAS VAAHTOLUOTO} \vspace{1em}
+
+Ennen n\"aiden teht\"avien tekemist\"a kannattaa tehd\"a viikon 1 verkkoteht\"av\"at, jotka johdattelevat viikon aiheeseen.
+Kaikki teht\"av\"at palautetaan Moodlessa vertaisarviointiin yhten\"a pdf-tiedostona. 
+
+\begin{enumerate}
+
+\item Mitk\"a seuraavista v\"aitteist\"a ovat kesken\"a\"an ekvivalentteja? Mink\"a v\"aitteiden v\"alill\"a on implikaatio mutta ei ekvivalenssia (t.s. ``$\textrm{V\"aite }A \Rightarrow \textrm{V\"aite }B$'' mutta ei ``$\textrm{V\"aite }B \Rightarrow \textrm{V\"aite }A$'')?
+
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item JYMin ohjaukset ovat maanantaisin, keskiviikkosin ja torstaisin.
+\item JYMin ohjausta on maanantaisin.\vspace{0.5cm}
+\end{enumerate}
+
+\textbf{Vastaus:} Väitteiden i. ja ii. välillä on implikaatio, mutta ei ekvivalenssia. 
+\begin{itemize}
+    \item Suunta i. $\Rightarrow$ ii. on tosi. Jos ohjauksia on maanantaisin, keskiviikkoisin ja torstaisin, silloin ohjausta on myös maanantaisin.
+    \item Suunta ii. $\Rightarrow$ i. on epätosi. Jos ohjauksia on maanantaisin, emme voi tämän tiedon pohjalta johtaa, että ohjauksia olisi maanantaisin, keskiviikkoisin ja torstaisin. \vspace{0.5cm}
+\end{itemize}
+
+\item
+\begin{enumerate}
+\item $x+y=4$
+\item $3x=12-3y$ \vspace{0.5cm}
+\end{enumerate}
+\textbf{Vastaus:} Väitteet i. ja ii. ovat ekvivalentteja. 
+\begin{itemize}
+    \item $x+y=4 \Leftrightarrow 3x=12-3y$, koska jälkimmäinen lause voidaan muokata samaksi kuin ensimmäinen. Jaetaan ensin ii. 3:lla molemmin puolin, ja lisätään y molemmin puolin. Näin saadaan $3x=12-3y \Rightarrow x+y=4$. Samalla tavalla i. voidaan muokata ii.:ksi ensin kertomalla molemmat puolet 3:lla ja sitten vähentämällä y molemmilta puolilta.\vspace{0.5cm} 
+\end{itemize}
+\item
+\begin{enumerate}
+\item $x>3$
+\item $x+1>3$
+\item $6<2x$ \vspace{0.5cm}
+\end{enumerate}
+
+\textbf{Vastaus:} 
+\begin{itemize}
+    \item Väitteet i. ja iii. ovat keskenään ekvivalentteja, koska molemmat merkitsevät samaa, eli $x>3$; iii. on vain kerrottu yhtälön molemmin puolin kahdella.
+    \item Väitteistä i. ja iii. implikoituu väite ii., mutta ekvivalenssia ei ole. Lauseesta $x>3$ voidaan päätellä, että lisäämällä 1, lause on edelleen suurempi kuin 3. Mutta jos tiedetään, että $x+1$ on suurempi kuin 3, ei siitä vielä voida päätellä, että pelkkä x olisi suurempi kuin 3.
+\end{itemize}
+
+\end{enumerate}
+\item Vastaa seuraaviin kysymyksiin.
+\begin{enumerate}
+\item Lue monisteen esimerkki 1.5.1.
+Todista sitten, ett\"a jos $A$ ja $B$ ovat joukkoja, niin $(A\cap B) \setminus B \subset A$.\vspace{0.5cm}
+
+\textbf{Vastaus:}
+
+Oletetaan, että A ja B ovat joukkoja. Osoitetaan, että $\left(A\cap B\right)\setminus B\subset A$.
+
+Oletetaan, että $a\in \left(A\cap B \right)\setminus B$. Tästä voidaan erotuksen määritelmän nojalla päätellä, että $a\in A\cap B$ ja $a\notin B$. Edelleen koska $a \in A \cap B$, voidaan leikkauksen määritelmän nojalla päätellä, että 
+\[
+a\in A \quad \text{ja}\quad a \in B.
+\]
+
+Olemme päätyneet ristiriitaiseen tilanteeseen, jossa $a\notin B$ ja $a\in B$. Ainoa tapa ratkaista tilanne on päätellä, että alkio a ei voi olla olemassa, eli $A\cap B \setminus B$ on tyhjä joukko. Voimme siis päätellä, että 
+\[
+\left(A\cap B\right)\setminus B=\emptyset.
+\]
+Koska $\emptyset\subset A$, väite on tosi.\vspace{0.5cm}
+
+
+\item Merkit\"a\"an $2\mathbb{N}=\{2n \, | \, n \in \mathbb{N}\}$ ja $4\mathbb{N}=\{4n \, | \, n \in \mathbb{N}\}$.
+Todista, ett\"a $4\mathbb{N} \subset 2\mathbb{N}$.\vspace{1em}
+
+\textbf{Vastaus:}
+
+Oletetaan, että $2\mathbb{N} = \left\{2n\mid n\in\mathbb{N}\right\}$ ja $4\mathbb{N} = \left\{4n \mid n \in \mathbb{N}\right\}$. Osoitetaan, että $4\mathbb{N}\subset 2\mathbb{N}$.
+
+Oletetaan, että $x\in 4\mathbb{N}$. Joukon $4\mathbb{N}$ määritelmän pohjalta tiedetään, että on olemassa $n\in \mathbb{N}$, joka voidaan merkitä lausekkeeseen $x=4n$. Lauseketta voidaan muokata muotoon $x=2\cdot\left(2n\right)$. Merkitään $k=2n$. Koska n on luonnollinen luku, myös $2n$ on luonnollinen luku, siis $k\in\mathbb{N}$. Nyt meillä on $x=2k\mid k\in\mathbb{N}$. Tämä vastaa muuttujan $2\mathbb{N}$ määritelmää, joten $x\in 2\mathbb{N}$. Koska mielivaltainen alkio x kuuluu joukkoon $2\mathbb{N}$, voidaan päätellä, että $4\mathbb{N}\subset 2\mathbb{N}$.\vspace{1em}
+
+\end{enumerate}
+
+\item Väite $(A \cup B)^c = A^c \cap B^c$ voidaan todistaa osoittamalla, että jos $x \in (A \cup B)^c$, niin myös $x \in A^c \cap B^c$ ja jos $x \in A^c \cap B^c$, niin myös $x \in (A \cup B)^c$. Nämä väitteet voidaan todistaa seuraavasti: \\
+\\
+$x \in (A\cup B)^c \Rightarrow x \in A^c \cap B^c:$ Oletetaan, että $x \in (A\cup B)^c$, eli $x \in \mathcal{U} \setminus (A \cup B)$, jolloin $x \not \in A$ ja $x \not \in B$. Nyt pätee $x \in A^c$ ja $x \in B^c$, eli $x \in A^c \cap B^c$. \\
+\\
+$x \in A^c \cap B^c \Rightarrow x \in (A \cup B)^c$: Oletetaan, että $x \in A^c \cap B^c$, eli $x \in A^c$ ja $x \in B^c$. Silloin pätee myös $x \not \in A$ ja $x \not \in B$, eli $x \in \mathcal{U} \setminus (A \cup B) = (A \cup B)^c$. \\
+\\
+Osoita samalla tavalla, että $(A \cap B)^c =A^c \cup B^c$.\vspace{1em}
+
+\textbf{Vastaus:}
+
+Osoitetaan, että $\left(A\cap B\right)^c=A^c\cup B^c$.
+\begin{itemize}
+    \item $x\in\left(A\cap B\right)^c \Rightarrow x\in A^c\cup B^c$ : Oletetaan, että $x\in\left(A\cap B\right)^c$, eli $x\in\mathcal{U}\setminus \left(A\cap B\right)$. Tällöin $x\notin A \cap B$. Voidakseen olla kuulumatta leikkaukseen, täytyy x:n puuttua jommasta kummasta joukosta A tai B. Täten $x\notin A$ tai $x\in B$. Yhdisteen määritelmän nojalla nyt pätee $x\in A^c$ tai $x\in B^c$, eli 
+    \begin{equation*}
+        x\in A^c\cup B^c.
+    \end{equation*}
+
+    \item $x\in A^c \cup B^c \Rightarrow x\in\left(A\cap B\right)^c$ : Oletetaan, että $x\in A^c\cup B^c$, eli $x\in A^c$ tai $ x\in B^c$. Täten $x\notin A$ tai $x\in B$. Koska x ei kuulu A:han tai B:hen, se ei voi kuulua niiden leikkaukseen, joten 
+    \begin{equation*}
+        x\in\left(A\cap B\right)^c
+    \end{equation*}
+    on totta.
+\end{itemize}
+ 
+\item Anna esimerkki joukoista $A$ ja $B$‚ joilla seuraava väite ei päde:
+ 
+\begin{enumerate}
+\item $A^C\cap B^C=(A\cap B)^C$\vspace{1em}
+
+\textbf{Vastaus:}
+
+Oletetaan perusjoukoksi tehtäviin (a) ja (b) $\mathcal{U}=\{4,5,6\}$.
+
+$A^c\cap B^c = \left(A\cap B\right)$ voidaan todistaa vääräksi esim. joukoilla $A = \left\{4,5\right\}$ ja $B = \left\{5,6\right\}$. Näillä joukoilla väite ei päde:
+\begin{itemize}
+    \item Vasen puoli : $A^c = \{6\}$ ja $B^c = \{4\}$, joten $A^c\cap B^c = \emptyset$.
+    \item Oikea puoli : $A\cap B=\{5\}$, joten $(A\cap B)^c = \{4,6\}$. $\emptyset\not=\{4,6\}$ joten väite ei päde.\vspace{1em}
+\end{itemize}
+
+\item $A^C\cup B^C=(A\cup B)^C$.\vspace{1em}
+
+\textbf{Vastaus:}
+
+Voidaan todistaa vääräksi samoilla joukoilla A ja B kuin tehtävässä (a). 
+\begin{itemize}
+    \item Vasen puoli : $A^c = \{6\}$ ja $B^c = \{4\}$, joten $A^c\cup B^c=\{4,6\}$.
+    \item Oikea puoli : $A\cup B = \{4,5,6\}$, joten $(A\cup B)^c = \emptyset$. $\{4,6\}\not=\emptyset$, joten väite ei päde. 
+\end{itemize}
+\end{enumerate}
+ 
+\item 
+
+Olkoon $n \in \mathbb{Z}$.
+Osoita vastaoletusta k\"aytt\"am\"all\"a, ett\"a jos luku $n^2$ on pariton, niin my\"os luku $n$ on pariton. (Monisteen Esimerkist\"a 3.4.1 voi olla apua.) \vspace{1em}
+
+\textbf{Vastaus:}
+
+Olkoon $n\in\mathbb{Z}$. Osoitetaan, että jos luku $n^2$ on pariton, niin myös luku n on pariton. Tehdään kontrapositiotodistus. 
+
+Oletetaan, että n ei ole pariton. Tällöin n on parillinen, joten $n=2k$ jollakin $k\in\mathbb{Z}$. Tästä seuraa, että 
+\begin{equation*}
+    n^2=(2k)^2=(2k)(2k)=4k^2=2(2k^2),
+\end{equation*}
+missä $2k^2\in\mathbb{Z}$. Siis $n^2$ on parillinen, ts. $n^2$ ei ole pariton. 
+
+Näin on todistettu, että jos n ei ole pariton, niin $n^2$ ei ole pariton. Tämä on alkuperäisen väitteen kontrapositio, joten myös alkuperäinen väite on todistettu. \vspace{1em}
+ 
+ \item Tutustu luentomonisteen sivuihin 83-84 kompleksiluvuista ja laske ilman laskinta:
+\begin{enumerate}
+    \item $(3+7i)+(8+2i)$\vspace{1em}
+
+    \textbf{Vastaus:}
+
+    $(3+7i)+(8+2i)$
+    $= (3+8)+(7i+2i) = 11 + 9i$\vspace{1em}
+    
+    \item $(3+7i)-(8+2i)$\vspace{1em}
+
+    \textbf{Vastaus:}
+    
+    $(3+7i)-(8+2i)$
+    $= (3-8) + (7i-2i) =-5+5i$\vspace{1em}
+    
+    \item $(-5-6i)+(7-2i)$\vspace{1em}
+    
+    \textbf{Vastaus:}
+    
+    $(-5-6i)+(7-2i)$
+    $=(-5+7)+(-6i-2i)=2-8i $\vspace{1em}
+    
+    \item $(-5-6i)-(7-2i)$\vspace{1em}
+
+    \textbf{Vastaus:}
+    
+    $(-5-6i)-(7-2i)$
+    $= (-5-7)+(-6i+2i)=-12-4i$\vspace{1em}
+    
+\end{enumerate}
+\end{enumerate}
+\end{document}

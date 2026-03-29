@@ -1,0 +1,358 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{6}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+\begin{enumerate}
+
+\item Ratkaise yht\"al\"o $z^6=64$ kompleksilukujen joukossa. Piirr\"a ratkaisut kompleksitasoon.
+
+\textbf{Vastaus:} Ratkaistaan $z^6=64$:
+
+\begin{align*}
+    64&=64e^{0i}\\
+    z^6&=(re^{\phi i})^6 =r^6e^{6\phi i}\\    
+\end{align*}
+\[
+\begin{cases}
+    r^6=64 \\
+    6\phi = k \cdot 2\pi
+\end{cases}
+\quad \Longleftrightarrow \quad
+\begin{cases}
+    r=\sqrt[6]{64} \\
+    \phi=k\cdot \frac{2}{6}\cdot \pi 
+\end{cases}
+\quad \Longleftrightarrow \quad
+\begin{cases}
+    r=2 \\
+    \phi=k\cdot \frac{1}{3}\cdot \pi 
+\end{cases}
+\]
+
+Ratkaisut ovat: $2e^{0i}$, $2e^{\frac{1}{3}\pi i}$, $2e^{\frac{2}{3}\pi i}$, $2e^{\pi i}$, $2e^{\frac{4}{3}\pi i}$, $2e^{\frac{5}{3}\pi i}$. Ne on piirretty alla olevaan kuvaan.\\
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    \draw[->] (-3,0) -- (3,0) node[right] {Re};
+    \draw[->] (0,-3) -- (0,3) node[above] {Im};
+
+    \foreach \x in {-2, -1, 1, 2} {
+        \draw (\x, 0.1) -- (\x, -0.1);
+    }
+
+    \foreach \y in {-2, -1, 1, 2} {
+        \draw (0.1, \y) -- (-0.1, \y);
+    }
+
+    \draw[dashed, gray] (0,0) circle (2);
+
+    \foreach \angle in {0, 60, ..., 300} {
+        \filldraw[blue] (\angle:2) circle (2pt);
+        %\draw (0,0) -- (\angle:2);
+    }
+    
+    \node[below right] at (2,0) {$2$};
+    \node[below left] at (-2,0) {$-2$};
+
+    \node[above left] at (0,2) {$2i$};
+    \node[below left] at (0,-2) {$-2i$};
+
+
+    \node[align=center, below] at (0,-3.5) {Yhtälön $z^6=64$ ratkaisut};
+    
+\end{tikzpicture}
+\end{center}
+
+\item Ratkaise yht\"al\"o $(z-4)^4=81$ kompleksilukujen joukossa. Piirr\"a ratkaisut kompleksitasoon.
+
+\textbf{Vastaus:} Ratkaistaan $(z-4)^4=81$. Otetaan yhtälön vasemmalle puolelle apumuuttuja $w$, jonka avulla saadaan $w=(z-4)$, jolloin myös $w^4=(z-4)^4$ pätee. Jatketaan eksponenttiesityksellä:
+\begin{align*}
+    81&=81e^{0i}\\
+    w^4&=r^4e^{4\phi i}
+\end{align*}
+\[
+\begin{cases}
+    r^4=81\\
+    4\phi = k\cdot 2\pi
+\end{cases}
+\quad \Longleftrightarrow \quad
+\begin{cases}
+    r=\sqrt[4]{81}\\
+    \phi=k\cdot \frac{2}{4}\cdot \pi
+\end{cases}
+\quad \Longleftrightarrow \quad
+\begin{cases}
+    r=3\\
+    \phi=k\cdot \frac{1}{2}\cdot \pi
+\end{cases}
+\]
+
+Kun $k=0$, saadaan $w_0=3e^{0i}=3$, kun $k=1$, saadaan $w_1=3e^{\frac{1}{2}\pi i}=3i$, kun $k=2$, saadaan $w_2=3e^{\pi i}=-3$, ja kun $k=3$, saadaan $w_3=3e^{\frac{3}{2}\pi i}=-3i$. 
+
+Koska $w=z-4$, voidaan muuttujan $z$ arvot ratkaista: $z=w+4$. Näin saadaan $z_0=3+4=7$, $z_1=3i+4=4+3i$, $z_2=-3+4=1$ ja $z_3=-3i+4=4-3i$. Nämä pisteet on piirretty alla olevaan kuvaan:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \draw[->] (-2,0) -- (10,0) node[right] {Re};
+    \draw[->] (0,-4) -- (0,4) node[above] {Im};
+
+    \foreach \x in {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9} {
+        \draw (\x, 0.1) -- (\x, -0.1);
+    }
+
+    \foreach \y in {-3, -2, -1, 1, 2, 3} {
+        \draw (0.1, \y) -- (-0.1, \y);
+    }
+
+    \draw[dashed, gray!50] (4,0) circle (3);
+    \draw[dashed, gray] (7,0) -- (4,3) -- (1,0) -- (4,-3) -- cycle;
+
+    \filldraw[blue] (7,0) circle (2pt);
+    \filldraw[blue] (4,3) circle (2pt);
+    \filldraw[blue] (1,0) circle (2pt);
+    \filldraw[blue] (4,-3) circle (2pt);
+
+    \node[below] at (1,-0.1) {$1$};
+    \node[below] at (4,-0.1) {$4$};
+    \node[below] at (7,-0.1) {$7$};
+    \node[below] at (10,-0.1) {$10$};
+
+    \node[left] at (-0.1, 3) {$3i$};
+    \node[left] at (-0.1, -3) {$-3i$};
+    \node[below left] at (0,0) {$0$};
+
+    \node[align=center, below] at (5,-4.5) {Yhtälön $(z-4)^4=81$ ratkaisut};
+\end{tikzpicture}
+\end{center}
+\vspace{1em}
+
+\item Piirr\"a kompleksitasoon $|z|=3$ ja $|z-3|=4$. Selvit\"a pisteet, joissa kuviot leikkaavat k\"aytt\"am\"att\"a laskinohjelmistoja.
+
+\textbf{Vastaus:}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-4,0) -- (10,0) node[right] {Re};
+    \draw[->] (0,-5) -- (0,5) node[above] {Im};
+
+    \foreach \x in {-3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9} {
+        \draw (\x, 0.1) -- (\x, -0.1);
+    }
+
+    \foreach \y in {-4, -3, -2, -1, 1, 2, 3, 4} {
+        \draw (0.1, \y) -- (-0.1, \y);
+    }
+
+    \draw[dashed, blue] (0,0) circle (3);
+    \draw[dashed, red] (3,0) circle (4);
+
+    \filldraw[blue] (0,0) circle (2pt);
+    \filldraw[red] (3,0) circle (2pt);
+
+    \node[below left] at (-3,0) {$-3$};
+    \node[below right] at (3,-0.1) {$3$};
+    \node[below] at (7,-0.1) {$7$};
+    \node[below] at (10,-0.1) {$10$};
+
+    \node[left] at (-0.1, 4) {$4i$};
+    \node[left] at (-0.1, -4) {$-4i$};
+    \node[below left] at (0,0) {$0$};
+
+    \node[align=center, below] at (3,-5.5) {Kuvassa sinisellä värillä  $|z|=3$ ja punaisella värillä $|z-3|=4$.};
+\end{tikzpicture}
+\end{center}
+
+Selvitetään sitten tarkat pisteet, joissa kuviot leikkaavat. Meillä on siis kaksi muuttujaa, joissa molemmissa on $z$. Muuttuja $z$ voidaan ilmaista myös muodossa $x+yi$. Sijoitetaan se yhtälöihin muuttujan $z$ paikalle. Näin saadaan: $|x+yi|=3$ ja $|(x-3)+yi|=4$. Näistä saadaan Pythagoraan lauseella yhtälöpari:
+\begin{itemize}
+    \item $|x+yi|=3 \quad \Longrightarrow \quad x^2+y^2=9$
+    \item $|(x-3)+yi|=4\quad \Longrightarrow \quad (x-3)^2+y^2=16$
+\end{itemize}
+
+Ratkotaan $x$ jälkimmäisestä yhtälöstä:
+\begin{align*}
+    (x-3)^2+y^2&=16\\
+    x^2+2\cdot x\cdot (-3)+(-3)^2+y^2&=16\\
+    x^2-6x+9+y^2&=16\\
+    -6x+9+9&=16 \quad \text{(sijoitetaan toinen yhtälö)}\\
+    18-6x&=16\\
+    -6x&=-2\\
+    x&=\frac{1}{3}
+\end{align*}
+
+Sijoitetaan muuttujan $x$ arvo yhtälöön $x^2+y^2=9$:
+\begin{align*}
+    \left(\frac{1}{3}\right)^2+y^2&=9\\
+    y^2&=9-\frac{1}{9} \\
+    y&= \pm\sqrt{\frac{80}{9}}\\
+    y&=\pm \frac{4\cdot\sqrt{5}}{3}
+\end{align*}
+
+Nyt kun meillä on $x$ ja $y$, voidaan johtaa kuvioiden leikkaupisteet: 
+\begin{itemize}
+    \item $\left( \frac{1}{3},\frac{4\cdot\sqrt{5}}{3}i\right) \quad \approx \quad (0.33,2.98i)$
+    \item $\left(\frac{1}{3},-\frac{4\cdot\sqrt{5}}{3}i\right) \quad \approx \quad (0.33,-2.98i)$.
+\end{itemize}
+\vspace{1em}
+
+\item Todista eksponenttimuodon avulla trigonometrian kaava
+\[
+\cos(2\varphi)=\cos^2\varphi-\sin^2\varphi.
+\]
+
+\textbf{Vastaus:} Tarkastellaan lauseketta $e^{i2\varphi}$ Eulerin kaavan $e^{i\varphi}=\cos\varphi+i\sin\varphi$ avulla. Saadaan lauseke 
+\begin{equation*}
+    e^{i2\varphi}=\cos(2\varphi)+i\sin(2\varphi).
+\end{equation*}
+
+Tarkastellaan lukua $e^{i2\varphi}$ toisella tavalla:
+\begin{equation*}
+    e^{i2\varphi}=\left(e^{i\varphi}\right)^2=(\cos\varphi+i\sin\varphi)^2.
+\end{equation*}
+Avataan jälkimmäinen lauseke:
+\begin{align*}
+    (\cos\varphi+i\sin\varphi)^2 &= (\cos\varphi)^2 + 2\cos\varphi(i\sin\varphi) + (i\sin\varphi)^2 \\
+    &= \cos^2\varphi + i(2\sin\varphi\cos\varphi) + i^2\sin^2\varphi \\
+    &= (\cos^2\varphi - \sin^2\varphi) + i(2\sin\varphi\cos\varphi).
+\end{align*}
+Koska meillä on nyt kaksi lauseketta, jotka molemmat kuvaavat samaa kompleksilukua $e^{i2\varphi}$, niiden täytyy olla yhtä suuret keskenään:
+\begin{equation*}
+    \cos(2\varphi)+i\sin(2\varphi)=(\cos^2\varphi- \sin^2\varphi)+i(2\sin\varphi\cos\varphi).
+\end{equation*}
+Nyt kun vertaamme näiden yhtälöiden reaaliosia, saadaan:
+\begin{equation*}
+    \cos(2\varphi)=\cos^2\varphi-\sin^2\varphi.
+\end{equation*}
+Kaava on näin todistettu oikeaksi.
+
+\item Todista eksponenttimuodon avulla trigonometrian kaava
+\[
+2\sin \theta\cos \varphi=\sin(\theta+\varphi)+\sin(\theta-\varphi)
+\]
+
+\textbf{Vastaus:} Tarkastellaan kaavan oikeaa puolta $e^{i(\theta+\varphi)} + e^{i(\theta-\varphi)}$ kahdella eri tavalla. 
+
+1: Avataan termit Eulerin kaavalla $e^{i\alpha} = \cos\alpha + i\sin\alpha$:
+\begin{align*}
+    e^{i(\theta+\varphi)} + e^{i(\theta-\varphi)} &= \big(\cos(\theta+\varphi) + i\sin(\theta+\varphi)\big) + \big(\cos(\theta-\varphi) + i\sin(\theta-\varphi)\big) \\
+    &= \big(\cos(\theta+\varphi) + \cos(\theta-\varphi)\big) + i\big(\sin(\theta+\varphi) + \sin(\theta-\varphi)\big).
+\end{align*}
+
+2: Käytetään eksponenttien laskusääntöjä:
+\begin{equation*}
+    e^{i(\theta+\varphi)} + e^{i(\theta-\varphi)} = e^{i\theta}e^{i\varphi} + e^{i\theta}e^{-i\varphi} = e^{i\theta}\left(e^{i\varphi} + e^{-i\varphi}\right).
+\end{equation*}
+Sovelletaan sulkulausekkeeseen Eulerin kaavaa: 
+\begin{align*}
+    e^{i\varphi} + e^{-i\varphi} &= (\cos\varphi + i\sin\varphi) + (\cos(-\varphi) + i\sin(-\varphi)) \\
+    &= \cos\varphi + i\sin\varphi + \cos\varphi - i\sin\varphi \\
+    &= 2\cos\varphi.
+\end{align*}
+Sijoitetaan tämä takaisin lausekkeeseen $e^{i\theta}\left(e^{i\varphi} + e^{-i\varphi}\right)$:
+\begin{align*}
+    e^{i\theta}\left(e^{i\varphi} + e^{-i\varphi}\right) &= (\cos\theta + i\sin\theta)(2\cos\varphi) \\
+    &= 2\cos\theta\cos\varphi + i(2\sin\theta\cos\varphi).
+\end{align*}
+
+Koska tavat 1 ja 2 kuvaavat samaa summalauseketta, niiden on oltava yhtä suuret keskenään:
+\begin{equation*}
+    \big(\cos(\theta+\varphi) + \cos(\theta-\varphi)\big) + i\big(\sin(\theta+\varphi) + \sin(\theta-\varphi)\big) = 2\cos\theta\cos\varphi + i(2\sin\theta\cos\varphi).
+\end{equation*}
+
+Kun vertaamme yhtälöiden imaginääriosia, saadaan:
+\begin{equation*}
+    \sin(\theta+\varphi) + \sin(\theta-\varphi) = 2\sin\theta\cos\varphi.
+\end{equation*}
+Kaava on näin todistettu oikeaksi.
+
+\item Vastaa seuraaviin kysymyksiin: \begin{enumerate}
+    \item Mitk\"a ovat polynomin $z^2+9$ nollakohdat kompleksilukujen joukossa?
+    
+    \textbf{Vastaus:} 
+    \begin{align*}
+        z^2+9&=0\\
+        z^2&=-9\\
+        z&=\pm i\sqrt{|-9|}\\
+        z&=\pm3i
+    \end{align*}
+    Polynomin nollakohdat ovat $z=3i$ ja $z=-3i$. 
+    
+    \item Mitk\"a ovat polynomin $z^2+2z+2$ nollakohdat kompleksilukujen joukossa?
+
+    \textbf{Vastaus:}
+    \begin{align*}
+        z^2+2z+2&=0\\
+        z&=\frac{-2\pm \sqrt{2^2-4\cdot 1\cdot 2}}{2}\\
+        &=\frac{-2\pm i \sqrt{|-4|}}{2}\\
+        &=\frac{-2\pm i 2}{2}\\
+        &=-1\pm i
+    \end{align*}
+    
+    \item  Mitk\"a ovat polynomin $z^4-1$ nollakohdat kompleksilukujen joukossa?
+    
+    \textbf{Vastaus:}
+    \begin{align*}
+        z^4-1&=0\\
+        (z^2-1)(z^2+1)&=0
+    \end{align*}
+
+    Tulon nollasäännön mukaisesti joko ensimmäinen tai toinen tulon tekijä on nolla. Eli joko
+    \begin{align*}
+        z^2-1&=0\\
+        z^2&=1\\
+        z=1 \quad &\text{TAI} \quad z=-1
+    \end{align*}
+    tai
+    \begin{align*}
+        z^2+1&=0\\
+        z^2&=-1\\
+        z=i \quad &\text{TAI} \quad z=-i
+    \end{align*}
+
+    Polynomilla on siis neljä nollakohtaa: $z=1$, $z=-1$, $z=i$ ja $z=-i$.
+    
+    \item Mitkä seuraavista väiteistä pätee ja mitkä ei? Polynomi $z^4+4$ voidaan esitt\"a\"a kahden polynomin tulona seuraavasti: 
+    \begin{enumerate}
+        \item $(z^2-2z+2)(z^2+2z+2)$ 
+        \item $(z^2+2)^2$ 
+        \item $(z^2+2)(z^2-2)$
+    \end{enumerate}
+
+    \textbf{Vastaus:} Ensimmäinen väite pätee. Kun toiseen väitteeseen soveltaa binomin neliön kaavaa, ilmestyy ylimääräinen termi $4z^2$, jota alkuperäisessä polynomissa ei ole. Kun kolmanteen väitteeseen käyttää summan ja erotuksen tulon muistikaavaa, tulee laskuun väärä etumerkki. 
+    
+\end{enumerate}
+\end{enumerate}
+\end{document}
+
+\end{document}

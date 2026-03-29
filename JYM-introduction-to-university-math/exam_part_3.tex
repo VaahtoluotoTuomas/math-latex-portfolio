@@ -1,0 +1,91 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{3.3.2026 klo 17:00}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+\begin{enumerate}
+
+\item 
+    \begin{enumerate}
+    \end{enumerate}
+    
+\item 
+\begin{enumerate}
+\end{enumerate}
+
+\item Todista induktiolla, että $\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\cdots+\frac{1}{n(n+1)}=\frac{n}{n+1}$ kaikilla $n \geq 1$. (6p) \\
+
+\textbf{Vastaus:}
+
+\underline{Alkuaskel:} Pienin mahdollinen arvo muuttujalle $n$ on $1$. Katsotaan pitääkö väite paikkansa jos $n=1$:
+\begin{equation*}
+    \frac{1}{1\cdot(1+1)}=\frac{1}{1\cdot 2}=\frac{1}{2}
+\end{equation*}
+ja
+\begin{equation*}
+    \frac{1}{1+1}=\frac{1}{2}
+\end{equation*}
+Yhtälön vasen ja oikea puoli ovat yhtä suuret, eli väite pätee kun $n=1$. 
+
+\underline{Induktio-oletus:} Oletetaan, että väite pätee mielivaltaisella kokonaisluvulla $k\geq1$. Oletetaan, että seuraava yhtälö pätee:
+\begin{equation*}
+    \frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\cdots+\frac{1}{k(k+1)}=\frac{k}{k+1}
+\end{equation*}
+
+\underline{Induktioväite:} Osoitetaan, että jos oletus pätee muuttujalla $k$, niin se pätee myös seuraajalla $k+1$, ja että väite pätee myös muodossa:
+
+\begin{equation*}
+       \frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\cdots+\frac{1}{k(k+1)}+\frac{1}{(k+1)((k+1)+1)}=\frac{k+1}{(k+1)+1}
+\end{equation*}
+
+Yllä olevan yhtälön oikea puoli sievenee  muotoon $\frac{k+1}{(k+1)+1}=\frac{k+1}{k+2}$.
+
+\underline{Induktioväitteen todistus:} Induktioväitteen yhtälön vasemman puolen alku on tismalleen sama kuin induktio-oletuksen yhtälön vasen puoli: $\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\cdots+\frac{1}{k(k+1)}$. Lähdetään muokkaamaan induktioväitteen vasenta puolta:
+\begin{align*}
+    \frac{k}{k+1}+\frac{1}{(k+1)(k+2)}&=\frac{k(k+2)}{(k+1)(k+2)}+\frac{1}{(k+1)(k+2)}\\
+    &=\frac{k^2+2k+1}{(k+1)(k+2)} \\
+    &=\frac{(k+1)^2}{(k+1)(k+2)} \\
+    &=\frac{k+1}{k+2} \\
+\end{align*}
+Lopputulos vastaa induktioväitteen oikeaa puolta, joten väite pätee.
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että $\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\cdots+\frac{1}{n(n+1)}=\frac{n}{n+1}$ kaikilla $n \geq 1$.
+
+\end{enumerate}
+
+\end{document}

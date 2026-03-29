@@ -1,0 +1,284 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+ 
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{2}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+Ennen n\"aiden teht\"avien tekemist\"a kannattaa tehd\"a viikon 1 verkkoteht\"av\"at, jotka johdattelevat viikon aiheeseen.
+Kaikki teht\"av\"at palautetaan Moodlessa vertaisarviointiin yhten\"a pdf-tiedostona. \\
+
+\textbf{Huom!} Jotkut t\"am\"an teht\"av\"asarjan teht\"avista voi ratkaista my\"os muuten kuin induktiolla. Koska kyseess\"a on induktioharjoitus, ei n\"aist\"a teht\"avist\"a voi kuitenkaan saada kuin maksimissaan yhden pisteen, jos ne on ratkaistu muilla keinoin kuin induktiolla. \\
+
+Jos summamerkinn\"at tuntuvat vaikeilta, tee ensin l\"ammittelyteht\"av\"at.
+
+
+\begin{enumerate}
+
+\item Lue huolellisesti Oinosen monisteen esimerkki 4.1.2. Todista sen j\"alkeen kyseist\"a esimerkki\"a seuraten, ett\"a kaikilla luonnollisilla luvuilla $n$ p\"atee
+$$\sum_{i=0}^n i(i+1)=\frac{n(n+1)(n+2)}{3}.$$
+
+\textbf{Vastaus: }
+
+\underline{Alkuaskel:} Tutkitaan päteekö yhtälö, jos n = 0.
+Oletetaan, että n = 0. Yhtälön vasen puoli on tällöin
+$$\sum_{i=0}^n i(i+1) = \sum_{i=0}^0 i(i+1) = 0(0+1) = 0$$
+ja yhtälön oikea puoli on 
+$$\frac{n(n+1)(n+2)}{3}=\frac{0(0+1)(0+2)}{3}=0.$$ 
+Yhtälön vasen ja oikea puoli ovat yhtä suuret, joten yhtälö pätee, kun n = 0.
+
+\underline{Induktioaskel:} Tehdään induktio-oletus: oletetaan, että $k \in \N$ ja
+\begin{equation*}
+    \sum_{i=0}^k i(i+1)=\frac{k(k+1)(k+2)}{3}. \tag{IO}
+\end{equation*}
+
+Tämä yhtälö voidaan kirjoittaa myös muodossa $0+2+6+\dots +k(k+1)$. 
+Seuraavaksi näytetään induktio-oletuksen avulla, että vastaava yhtälö pätee myös seuraavalle luonnolliselle luvulle $k+1$. Pitää todistaa induktioväite:
+\begin{equation*}
+    \sum_{i=0}^{k+1}i(i+1)=\frac{(k+1)(k+2)(k+3)}{3}. \tag{IV}
+\end{equation*}
+Tämä voidaan kirjoittaa myös muodossa $0+2+6\dots+k(k+1)+(k+1)(k+2)=\frac{(k+1)(k+2)(k+3)}{3}.$
+
+Huomataan, että summan termit viimeistä lukuun ottamatta ovat samat yhtälössä (IV) ja (IO). Sievennetään sitten induktioväitteen vasenta puolta hyödyntäen induktio-oletusta kohdassa (IO):
+\begin{align*}
+    \sum_{i=0}^{k+1}i(i+1) & =(0+2+6+\dots +k(k+1))+(k+1)(k+2) \\
+    & =\sum_{i=0}^ki(i+1)+(k+1)(k+2) \\
+    &\stackrel{\text{(IO)}}{=}\frac{k(k+1)(k+2)}{3}+(k+1)(k+2) \\
+    &=\frac{k(k+1)(k+2)}{3}+\frac{3(k+1)(k+2)}{3} \quad\text{(lavennetaan)} \\
+    &=\frac{k(k+1)(k+2)+3(k+1)(k+2)}{3} \quad\text{(yhdistetään yläkerta)} \\
+    &=\frac{(k+1)(k+2)\cdot (k+3)}{3} \quad\text{(yhteinen tekijä (k+1)(k+2))} \\
+    &=\frac{(k+1)(k+2)(k+3)}{3}
+\end{align*}
+Nyt induktioväitteen vasen puoli on saatu muotoon $\frac{(k+1)(k+2)(k+3)}{3}$. Induktioväitteen oikea puoli on tismalleen sama. Siis yhtälö (IV) pätee. 
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että kaikilla $n \in \N$ pätee yhtälö
+\begin{equation*}
+    \sum_{i=0}^n i(i+1)=\frac{n(n+1)(n+2)}{3}.
+\end{equation*} \vspace{0.5cm}
+
+\item Todista induktiolla, ett\"a kaikilla luonnollisilla luvuilla $n$ p\"atee
+$$0+1+2+3+ \ldots + n=\frac{n(n+1)}{2}.$$
+
+\textbf{Vastaus:}
+
+Tehtävän väitteen voi ilmaista myös summafunktiomuodossa, eli
+\begin{equation*}
+    0+1+2+3+ \ldots + n=\sum_{i=0}^ni.
+\end{equation*}
+\underline{Alkuaskel:} Tutkitaan päteekö yhtälö, jos n = 0. Oletetaan, että n = 0. Summafunktiona ilmaistun yhtälön vasen puoli on tällöin
+\begin{equation*}
+    \sum_{i=0}^ni=0
+\end{equation*}
+ja yhtälön oikea puoli on
+\begin{equation*}
+    \frac{n(n+1)}{2}=\frac{0(0+1)}{2}=0
+\end{equation*}
+Yhtälön vasen ja oikea puoli ovat yhtä suuret, joten yhtälö pätee, kun n = 0. 
+
+\underline{Induktioaskel:} Tehdään induktio-oletus, ja oletetaan, että $k\in \N$ ja 
+\begin{equation*}
+    \sum_{i=0}^ki=\frac{k(k+1)}{2}. \tag{IO}
+\end{equation*}
+Kuten tehtävänannostakin tuli ilmi, lauseen voi kirjoittaa myös muodossa $0+1+2+3+ \ldots + k$. Seuraavaksi näytetään induktio-oletuksen avulla, että vastaava yhtälö pätee myös luonnolliselle luvulle $k+1$. Pitää todistaa induktioväite:
+\begin{equation*}
+    \sum_{i=0}^{k+1}i=\frac{(k+1)(k+2)}{2} \tag{IV}
+\end{equation*}
+Tämä voidaan kirjoittaa myös muodossa $0+1+2+3+\dots +k+(k+1)=\frac{(k+1)(k+2)}{2}$. Huomataan, että summan termit ovat viimeistä lukuunottamatta samat yhtälöissä (IV) ja (IO). Sievennetään sitten induktioväitteen vasenta puolta hyödyntäen induktio-oletusta kohdassa (IO):
+\begin{align*}
+    \sum_{i=0}^{k+1}i & = (0+1+2+3+\dots +k)+(k+1) \\
+    & =\sum_{i=0}^ki+(k+1) \\
+    & \stackrel{\text{(IO)}}{=}\frac{k(k+1)}{2}+(k+1) \\
+    & = \frac{k(k+1)}{2}+\frac{2(k+1)}{2} \quad\text{(lavennetaan)} \\
+    & = \frac{k(k+1)+2(k+1)}{2} \quad\text{(yhdistetään)} \\
+    & = \frac{(k+1)\cdot(k+2)}{2} \quad\text{(yhteinen tekijä)} \\
+    & = \frac{(k+1)(k+2)}{2}
+\end{align*}
+Nyt induktioväitteen vasen puoli on muodossa $\frac{(k+1)(k+2)}{2}$. Induktioväitteen oikea puoli on tismalleen sama. Siis yhtälö (IV) pätee.
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että kaikilla $n\in \N$ pätee yhtälö
+$$0+1+2+3+ \ldots + n=\frac{n(n+1)}{2}.$$ \vspace{0.5cm}
+
+\item Todista induktiolla, ett\"a luku $n^3-n$ on kolmella jaollinen kaikilla luonnollisilla luvuilla $n$.
+
+\textbf{Vastaus: }
+
+Osoitetaan induktiolla, että luku $3$ jakaa luvun $n^3-n$ kaikilla $n \in \N$.
+
+\underline{Alkuaskel:} Tutkitaan jakaako luku $3$ luvun $n^3-n$, jos $n=0$.
+
+Oletetaan, että $n = 0$. Tällöin
+\begin{equation*}
+    n^3-n = 0^3-0=0-0=0=0\cdot 3,
+\end{equation*}
+missä $0 \in \Z$. Siis jos $n=0$, niin luku $n^3-n$ on jaollinen luvulla $3$. 
+
+\underline{Induktioaskel:} Tehdään induktio-oletus: oletetaan, että $k\in \N$, ja oletetaan, että luku 3 jakaa luvun $k^3-k$. Tästä seuraa jaollisuuden määritelmän nojalla, että on olemassa $a\in \Z$, jolla pätee
+\begin{equation*}
+    k^3-k=a\cdot 3. \tag{1}
+\end{equation*}
+Seuraavaksi tavoitteena on näyttää induktio-oletuksen avulla, että luku 3 jakaa myös luvun $(k+1)^3-(k+1)$. Muokataan tarkasteltavaa lukua potenssisääntöjen avulla:
+\begin{align*}
+    (k+1)^3-(k+1)&=k^3+3k^2+3k+1-(k+1) \quad\text{(binomin kuutio)}\\
+    & =k^3+3k^2+2k. \tag{2}
+\end{align*}
+Yhtälö (1) voidaan kirjoittaa myös muodossa $k^3=a\cdot 3+k$. Käyttämällä tätä tietoa voidaan yhtälöketjua (2) jatkaa:
+\begin{align*}
+    (k+1)^3-(k+1) & =(a\cdot 3+k)+3k^2+2k \\
+    & = 3a+k+3k^2+2k \\
+    & = 3a + 3k^2 + 3k \\
+    & = 3(a+k^2+k)
+\end{align*}
+Koska $a\in \Z$ ja $k\in \N$ , voidaan päätellä, että $a+k^2+k$ on kokonaisluku. Siis luku $(k+1)^3-(k+1)$ on jaollinen luvulla 3.
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että luku $3$ jakaa luvun $n^3-n$ kaikilla $n\in \N$. \vspace{1em}
+
+\item Todista induktiolla
+\[
+\sum_{k=1}^n k^3 =\frac{n^2(n+1)^2}{4}.
+\]  
+
+\textbf{Vastaus:}
+
+Osoitetaan induktiolla, että kaikilla $n\in \N$ pätee yhtälö
+\begin{equation*}
+    \sum_{k=1}^n k^3 =\frac{n^2(n+1)^2}{4}.
+\end{equation*}
+
+\underline{Alkuaskel:} Tutkitaan päteekö yhtälö, jos $n = 1$. Oletetaan, että $n=1$. Yhtälön vasen puoli on tällöin
+\begin{equation*}
+    \sum_{k=1}^n k^3 = \sum_{k=1}^1 k^3 = 1^3=1
+\end{equation*}
+ja yhtälön oikea puoli on
+\begin{equation*}
+    \frac{n^2(n+1)^2}{4}=\frac{1^2(1+1)^2}{4}=\frac{4}{4}=1.
+\end{equation*}
+Yhtälön vasen ja oikea puoli ovat siis yhtä suuret. Täten yhtälö pätee kun $n=1$.
+
+\underline{Induktioaskel:} Tehdään induktio-oletus: oletetaan, että $m\in\N$ ja
+\begin{equation*}
+    \sum_{k=1}^m k^3 =\frac{m^2(m+1)^2}{4}. \tag{1}
+\end{equation*}
+Yhtälö (1) voidaan kirjoittaa myös muodossa $1^3+2^3+3^3+\dots +m^3$. Seuraavaksi näytetään induktio-oletuksen avulla, että vastaava yhtälö pätee myös seuraavalle luonnolliselle luvulle $m+1$. Pitää todistaa induktioväite:
+\begin{equation*}
+    \sum_{k=1}^{m+1} k^3 =\frac{(m+1)^2((m+1)+1)^2}{4} = \frac{(m+1)^2(m+2)^2}{4} \tag{2}
+\end{equation*}
+Yhtälö (2) voidaan kirjoittaa myös muodossa $1^3+2^3+3^3+\dots +m^3+(m+1)^3=\frac{(m+1)^2(m+2)^2}{4}$. Huomataan, että summan termit viimeistä lukuunottamatta ovat samat yhtälöissä (1) ja (2). Sievennetään sitten induktioväitteen vasenta puolta hyödyntäen induktio-oletusta kohdassa (IO):
+\begin{align*}
+    \sum_{k=1}^{m+1} k^3&=1^3+2^3+3^3+\dots +m^3+(m+1)^3 \\
+    & = \sum_{k=1}^m k^3+(m+1)^3 \\
+    & \stackrel{\text{IO}}{=} \frac{m^2(m+1)^2}{4}+(m+1)^3 \\
+    & = \frac{m^2(m+1)^2}{4}+\frac{4(m+1)^3}{4} \quad\text{(lavennetaan)} \\
+    & = \frac{m^2(m+1)^2+4(m+1)^3}{4} \quad\text{(yhdistetään)} \\
+    & = \frac{m^2(m+1)^2+4(m+1)^2\cdot (m+1)}{4} \\
+    & = \frac{(m+1)^2\cdot (m^2+4\cdot (m+1))}{4} \quad\text{(yhteinen tekijä)} \\
+    & = \frac{(m+1)^2\cdot (m^2+4m+4)}{4} \\
+    & = \frac{(m+1)^2(m+2)^2}{4} \quad\text{(binomin neliö)}
+\end{align*}
+Nyt induktioväitteen sekä vasen, että oikea puoli ovat muodossa $\frac{(m+1)^2(m+2)^2}{4}$. Siis yhtälö (2) pätee. 
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että kaikilla $n\in \N$ pätee yhtälö
+\begin{equation*}
+    \sum_{k=1}^n k^3 =\frac{n^2(n+1)^2}{4}.
+\end{equation*} \vspace{1em}
+
+\item Osoitetaan induktiolla, ett\"a kaikki koirat ovat samanv\"arisi\"a.
+
+\noindent \textbf{Alkuaskel:} Tarkastellaan $1$ koiran joukkoa. Koira on itsens\"a kanssa samanv\"arinen. Alkuaskel on siis kunnossa.
+
+\noindent \textbf{Induktio-oletus:} Oletetaan, ett\"a jollakin $k>0$ miss\"a tahansa $k$ koiran joukossa kaikki koirat ovat kesken\"a\"an samanv\"arisi\"a.
+
+\noindent \textbf{Induktiov\"aite:} Miss\"a tahansa $k+1$ koiran joukossa kaikki koirat ovat kesken\"a\"an samanv\"arisi\"a.
+
+\textbf{Todistus:} Tarkastellaan $k+1$ koiran joukkoa. Otetaan joukosta pois yksi koira. Loput koirat muodostavat $k$ koiran joukon. Induktio-oletuksen mukaan ne siis ovat samanv\"arisi\"a kesken\"a\"an. Palataan takaisin alkuper\"aiseen joukkoon ja poistetaankin siit\"a jokin toinen koira. J\"aljell\"a olevat $k$ koiraa ovat induktio-oletuksen mukaan taas samanv\"arisi\"a. Siisp\"a kaikkien $k+1$ koiran pit\"a\"a olla samanv\"arisi\"a.
+
+Mik\"a meni pieleen?
+
+\textbf{Vastaus:} 
+
+Tosielämässä koirien väriä ei tietenkään voi todistaa näin induktiivisesti, mutta tarkastellaan esimerkkiä logiikan kannalta.
+
+Alkuaskel on oikein: jos meillä on 1 koira, koira todellakin on itsensä kanssa samanvärinen. 
+
+Induktio-oletuskin on oikein: jos meillä on $k > 0$ -- vaikkapa kuuden kokoinen k, voidaan toki argumentin nimissä tehdä alkuun oletus, että kaikki tähän joukkoon tuodut koirat ovat keskenään samanvärisiä (vaikka tosielämässä tietysti jos valittaisiin satunnaiset koirat joukkoon, olisi todennäköistä että mukana olisi eri värisiä koiria).
+
+Induktioväitteen asettaminenkin on sinänsä oikein; siinä vain määritellään ikään kuin maali induktiolle: eli jos induktio-oletus pätee, niin siitä voidaan johtaa induktioväite. Ja tätä seuraavassa kohdassa lähdetään tarkastelemaan. 
+
+Todistuksessa tapahtuu jotain kummallista. Jos meillä olisi vaikka k=1, ja tarkasteltaisiin k+1 koiran joukkoa, eli joukkoa jonka koko on $1+1=2$. Todistuksessa otetaan joukosta yksi koira, ja todistetaan sen olevan samanvärinen itsensä kanssa induktio-oletuksen nojalla. Sitten palataan takaisin alkuperäiseen joukkoon, ja poistetaankin toinen koira; nyt taas todistetaan tämän koiran olevan samanvärinen itsensä kanssa induktio-oletuksen nojalla. Tästä johdetaan, että kaikkien k+1 koirien täytyy olla samanvärisiä. 
+
+Tässä tilanteessa olisi voinut käydä niin, että toinen koira on musta ja toinen valkoinen. Ensin eristettiin vaikkapa valkoinen koira omaksi joukokseen, ja todistettiin sen olevan samanvärinen itsensä kanssa. Sitten palattiin alkuperäiseen joukkoon, ja eristettiinkin siitä musta koira, ja todistettiin sen olevan samanvärinen itsensä kanssa. Näin todistettiin vain koirien olevan samanvärisiä itsensä kanssa, mutta emme varsinaisesti todistaneet sitä ovatko koirat keskenään samanvärisiä vai eivät. 
+
+Kolmella koiralla todistus toimisi niin, että meillä olisi joukossa $k+1$ esim. koirat $\{A,B,C\}$, ja ensin tarkasteltaisiin koiria $A$ ja $B$ erikseen (ne muodostavat nyt joukon $k$). Induktio-oletuksen nojalla voitaisiin päätellä, että joukossa $k$ kaikki koirat ovat keskenään samanvärisiä. Sitten katsottaisiin koirien $B$ ja $C$ joukkoa (ne muodostavat nyt joukon $k$). Induktio-oletuksen nojalla voitaisiin taas päätellä, että joukossa $k$ kaikki koirat ovat keskenään samanvärisiä. Nyt voitaisiin päätellä, että myös koirat $A$ ja $C$ ovat keskenään samanvärisiä, vaikka niiden muodostamaa joukkoa ei ole erikseen tarkasteltu. Ja induktion logiikan mukaan tästä voitaisiin vakuuttavasti päätellä, että sama pätisi myös esim. neljällä tai viidellä koiralla. 
+
+Ongelma oli siis siinä, että todistus hajosi joukolla $k=1$, jolloin joukon $k+1$ koko oli $1+1=2$. Tällöin kahdessa tarkasteltavassa joukossa ei ollut yhteisiä jäseniä (eli leikkausta), eikä täten edellisen kappaleen (kolmen koiran tapauksessa toteutunutta) induktiota voitu johtaa. \vspace{1em}
+ 
+\item Olkoon kompleksiluvut $z=5+12i$ ja $w=3-4i$. Laske
+\begin{enumerate}
+    \item $\overline{z}$
+    \item $zw$
+    \item $|z|$
+    \item $\frac{z}{w}$.
+\end{enumerate}
+\textbf{Vastaus: }
+
+\begin{equation*}
+    (a):\quad \overline{z}=5-12i
+\end{equation*}
+
+
+
+\begin{equation*}
+    (b):\quad zw=(5\cdot3-12\cdot (-4), 5\cdot (-4)+12\cdot 3)=(63,16)
+\end{equation*}
+
+\begin{align*}
+    (c):\quad |z|=\sqrt{z\overline{z}}&=\sqrt{(5+12i)(5-12i)}\\
+    &=\sqrt{25-60i+60i-144i^2}\\
+    &=\sqrt{25-144(-1)}\\
+    &=13
+\end{align*}
+
+\begin{align*}
+    (d):\quad \frac{z}{w}&=\frac{5+12i}{3-4i}\\
+    &=\frac{(3+4i)(5+12i)}{(3+4i)(3-4i)}\\
+    &=\frac{15+36i+20i+48i^2}{9-12i+12i-16i^2}\\
+    &=\frac{15+56i+48i^2}{9-16i^2}\\
+    &=\frac{15+56i+48\cdot (-1)}{9-16\cdot (-1)}\\
+    &=\frac{15+56i-48}{25}\\
+    &=-\frac{33}{25}+\frac{56}{25}i\\
+    &=-1.32+2.24i
+\end{align*}
+
+ \end{enumerate}
+\end{document}

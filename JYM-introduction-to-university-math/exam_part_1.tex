@@ -1,0 +1,74 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{3.3.2026 klo 17:00}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+\begin{enumerate}
+
+\item Ovatko seuraavat väitteet totta? Perustele lyhyesti.
+    \begin{enumerate}
+        \item Jos $A=\{1,2,3\}$ ja $B=\{2,3,4\}$, niin $4 \in \complement (A \cap B)$. (1p)
+        \item Jos $p$ ja $q$ ovat alkulukuja, niin silloin myös $p+q$ on aina alkuluku. (1p)
+        \item Kuvaus $f:\mathbb{Z}\to\mathbb{Z}$, $f(z)=2z$, ei ole bijektio. (1p)
+        \item Rationaali- ja reaalilukujen joukot $\mathbb{Q}$ ja $\mathbb{R}$ ovat yhtä mahtavat. (1p)
+        \item Jos $q$ on irrationaaliluku, niin silloin myös $q^2$ on aina irrationaaliluku. (1p)
+        \item Kuvauksen $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x$, käänteiskuvaus on (1p)
+        \[
+        f^{-1}(x)=
+        \begin{cases}
+        \dfrac{1}{x}, & x\neq 0,\\[4pt]
+        0, & x=0.
+        \end{cases}
+        \]
+        \\
+    \end{enumerate}
+
+    \textbf{Vastaus:}
+
+    \begin{enumerate}
+        \item Totta. Leikkaukseen $A \cap B$ kuuluvat A:n ja B:n yhteiset alkiot, eli 2 ja 3, tämän leikkauksen komplementtiin taas kuuluvat kaikki alkiot, jotka eivät kuulu leikkaukseen. Koska luku 4 ei ole leikkauksessa, se on komplementissa. 
+        \item Epätosi. Kumotaan väite vastaesimerkillä. Valitaan alkuluvut $p=3$ ja $q=5$. Niiden summa on $p+q=3+5=8$, eikä kahdeksan ole alkuluku, koska se on jaollinen esim. kahdella. 
+        \item Totta. Jotta kuvaus olisi bijektio, sen pitäisi olla sekä injektio, että surjektio. Kuvaus f tuottaa vain parillisia kokonaislukuja, vaikka lähtöjoukossa on kaikki kokonaisluvut; täten esim. kokonaisluvut 1 ja 3 eivät lukeudu kuvauksen maalijoukkoon. Siksi kuvaus ei ole surjektio eikä bijektio. 
+        \item Epätosi. Kaksi joukkoa ovat yhtä mahtavat vain jos niiden välillä on bijektio. Rationaalilukujen joukko on numeroituvasti ääretön. Reaalilukujen joukko taas on ylinumeroituvasti ääretön, ja täten aidosti mahtavampi kuin rationaalilukujen joukko. 
+        \item Epätosi. Kumotaan väite vastaesimerkillä. Valitaan luvuksi $q=\sqrt{2}$, joka on irrationaaliluku. Korotetaan se toiseen potenssiin: $(\sqrt{2})^2=2$. Näin saimme luvun kaksi, joka on kokonaisluku, ja täten myös rationaaliluku. 
+        \item Epätosi. Kuvaus $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x$ on identtinen kuvaus, eli se ei muuta alkiota x mitenkään; täten sen käänteiskuvaus on funktio itse eli $f^{-1}(x)=x$. Väitteessä annettu funktio on luvun käänteisluku. 
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

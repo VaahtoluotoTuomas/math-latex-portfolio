@@ -1,0 +1,261 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{3}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+Ennen n\"aiden teht\"avien tekemist\"a kannattaa tehd\"a viikon 1 verkkoteht\"av\"at, jotka johdattelevat viikon aiheeseen.
+Kaikki teht\"av\"at palautetaan Moodlessa vertaisarviointiin yhten\"a pdf-tiedostona. \\
+
+\textbf{Huom!} Jotkut t\"am\"an teht\"av\"asarjan teht\"avist\"a voi ratkaista my\"os muuten kuin induktiolla. Koska kyseess\"a on induktioharjoitus, ei n\"aist\"a teht\"avist\"a voi kuitenkaan saada kuin maksimissaan yhden pisteen, jos ne on ratkaistu muilla keinoin kuin induktiolla. \\
+
+\begin{enumerate}
+
+\item Lue huolellisesti Oinosen monisteen Esimerkki 4.2.3. Perustele, miksi esimerkiss\"a tarvitaan II induktioperiaatetta. 
+
+\textbf{Vastaus:}
+
+Esimerkissä 4.2.3. osoitetaan, että jokainen luonnollinen luku $n \geq 2$ on joko alkuluku tai alkulukujen tulo. Todistuksessa luodaan rekursiivinen mekanismi, joka tarkistaa aina luvun k+1 seuraavalla tavalla: ensin katsotaan onko k+1 alkuluku ja jos on, todistus pätee; toisaalta jos k+1 ei ole alkuluku, se voidaan pilkkoa osiin ab, jossa sekä a, että b on määritelty pienemmiksi kuin k+1, mutta isommiksi kuin 1. Näin lukuja ikään kuin pilkotaan pienemmiksi tekijöiksi lähtien k+1:sta kunnes tekijöistä löytyy alkuluku tai alkulukujen tulo. 
+
+Induktioaskeleessa on oletettu, että kaikki luonnolliset luvut väliltä $2\cdots k$ ovat alkulukuja tai alkulukujen tuloja. Edellisessä kappaleessa kuvattu operaatio on siis oletuksellisesti tehty jo kaikille k+1:sta pienemmille luvuille, ja niistä on löydetty joko alkuluku tai alkulukujen tulo. Tähän tietoon todistuksessa nojataan; kunhan a ja b ovat pienempiä kuin k+1, voidaan luottaa siihen, että niistä löytyy alkuluku tai alkulukujen tulo. 
+
+Ensimmäinen induktioperiaate ei riitä, koska se tarjoaa oletuksen vain luvulle k, noudattaen logiikkaa $k\rightarrow k+1$. Esimerkissä 4.2.3. luvun k+1 tekijät a ja b voivat hyvinkin olla pienempiä kuin k, joten tieto edellisestä luvusta ei riitä todistamaan väitettä. Toisen induktioperiaatteen avulla saadaan tieto kaikista luvuista a ja b, joita tarvitaan tapauksen k+1 todistamiseen. 
+
+\item Todista induktiolla, ett\"a 
+$$\sum_{i=0}^n 2^i=2^{n+1}-1$$
+kaikilla luonnollisilla luvuilla $n$.
+
+\textbf{Vastaus:}
+
+Todistetaan induktiolla, että $$\sum_{i=0}^n 2^i=2^{n+1}-1$$ kaikilla luonnollisilla luvuilla $n$.
+
+\underline{Alkuaskel:} Oletetaan $n=0$. Yhtälön vasen puoli on tällöin:
+\begin{equation*}
+    \sum_{i=0}^n 2^i=\sum_{i=0}^02^0=1.
+\end{equation*}
+Yhtälön oikea puoli on: $2^{n+1}-1=2^{0+1}-1=2-1=1$. Alkuaskel on siis ok. 
+
+\underline{Induktio-oletus:} Oletetaan $k\in \N$ ja
+\begin{equation*}
+    \sum_{i=0}^k2^i=2^{k+1}-1.
+\end{equation*}
+Se voidaan kirjoittaa myös $1+2+4+\cdots +2^k=2^{k+1}-1$.
+
+\underline{Induktioväite:} Osoitetaan: $k+1\in \N$ ja
+\begin{equation*}
+    \sum_{i=0}^{k+1}2^i=2^{(k+1)+1}-1=2^{k+2}-1.
+\end{equation*}
+Se voidaan kirjoittaa myös $1+2+4+\cdots +2^k+2^{k+1}=2^{k+2}-1$.
+
+\underline{Induktioaskel:} 
+\begin{align*}
+    \sum_{i=0}^{k+1}2^i&=1+2+4+\cdots +2^k+2^{k+1} \\
+    &= \sum_{i=0}^k2^i+2^{k+1}\\
+    &\stackrel{\text{IO}}{=}2^{k+1}-1+2^{k+1} \\
+    &=2^{k+2}-1 .
+\end{align*}
+Nyt induktioväitteen yhtälön vasen ja oikea puoli ovat samat; väite siis pätee. 
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että kaikilla $n\in \N$ pätee $$\sum_{i=0}^n 2^i=2^{n+1}-1.$$ \vspace{1em}
+ 
+\item Todista induktiolla, ett\"a $4^n>3n^2$, kun $n\geq 1$ on kokonaisluku.
+
+\textbf{Vastaus:} Todistetaan induktiolla, että $4^n>3n^2$, kun $n\geq 1$ on kokonaisluku.
+
+\underline{Alkuaskel:} Kun $n=1$, saadaan
+
+\begin{equation*}
+    4^1>3\cdot 1^2 \iff 4>3.
+\end{equation*}
+
+Alkuaskel on siis ok.
+
+\underline{Induktio-oletus:} Oletetaan $k\in \Z$, $k\geq 1$ ja 
+\begin{equation*}
+    4^k>3k^2. 
+\end{equation*} 
+
+\underline{Induktioväite:} Osoitetaan, että väite pätee luvulla $k+1 \in \Z$, eli
+\begin{align*}
+    4^{k+1}&>3(k+1)^2\\
+    &=3(k^2+2k+1)\\
+    &=3k^2+6k+3
+\end{align*}
+
+\underline{Induktioaskel:} Kertomalla induktio-oletuksen molemmat puolet neljällä saadaan uusi epäyhtälö $4^{k+1}>3k^2+3k^2+3k^2+3k^2$. Arvioidaan tämän epäyhtälön oikeaa puolta alaspäin käyttäen oletusta $k\geq 1$, ja katsotaan saadaanko se muotoon, jossa nähdään sen olevan suurempi kuin induktioväitteen $3k^2+6k+3$:
+\begin{align*}
+    4^{k+1}&>3k^2+3k^2+3k^2+3k^2 \\
+    & = 3k^2 + 3\cdot k \cdot k +3\cdot k \cdot k + 3\cdot k \cdot k \\
+    & \geq 3k^2 + 3\cdot 1 \cdot k + 3\cdot 1 \cdot k  + 3\cdot 1 \cdot 1 \\
+    & = 3k^2 + 6k +3.
+\end{align*}
+Saadusta epäyhtälöketjusta voidaan päätellä, että $4^{k+1} > 3k^2 + 6k +3$.
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että kaikilla luonnollisilla luvuilla $n \geq 1$ pätee $4^n>3n^2$. \vspace{1em}
+
+\item Tarkastellaan lukujonoa $(L_k)$, miss\"a $L_k$ toteuttaa rekursion $L_{k+2}=L_{k+1}+2L_k$. Lis\"aksi $L_1=1$ ja $L_2=3$. Osoita induktiolla, ett\"a $L_n=\frac{1}{3}\cdot (-1)^n+\frac{2}{3}\cdot 2^n$. 
+
+\textbf{Vastaus:} Tarkastellaan lukujonoa $(L_k)$, miss\"a $L_k$ toteuttaa rekursion $L_{k+2}=L_{k+1}+2L_k$. Lis\"aksi $L_1=1$ ja $L_2=3$. Osoitetaan induktiolla, ett\"a $L_n=\frac{1}{3}\cdot (-1)^n+\frac{2}{3}\cdot 2^n$. 
+
+Lukujono alkaa seuraavasti:
+\begin{align*}
+    L_1&=1\\
+    L_2&=3\\
+    L_3&=3+2\cdot 1=5\\
+    L_4&=5+2\cdot 3=11\\
+    L_5&=11+2\cdot 5=21
+\end{align*}
+
+\underline{Alkuaskel:} Tutkitaan päteekö väitetty yhtälö jos $n=1$, ja jos $n=2$. Kun $n=1$
+\begin{equation*}
+    L_1=\frac{1}{3}\cdot (-1)^1+\frac{2}{3}\cdot 2^1=-\frac{1}{3}+\frac{4}{3}=\frac{3}{3}=1.
+\end{equation*}
+Kun $n=2$
+\begin{equation*}
+    L_2=\frac{1}{3}\cdot (-1)^2+\frac{2}{3}\cdot 2^2=\frac{1}{3}+\frac{8}{3}=\frac{9}{3}=3.
+\end{equation*}
+Alkuaskel on siis ok. 
+
+\underline{Induktio-oletus:} Oletetaan kokonaisluku $p \geq 1$, ja että väite pätee arvoilla $n=p$ ja $n=p+1$. Oletamme siis, että seuraavat yhtälöt ovat totta:
+\begin{align*} L_p &= \frac{1}{3}\cdot (-1)^p+\frac{2}{3}\cdot 2^p \\ 
+L_{p+1} &= \frac{1}{3}\cdot (-1)^{p+1}+\frac{2}{3}\cdot 2^{p+1} 
+\end{align*}
+\underline{Induktioväite:} Osoitetaan, että väite pätee myös seuraavalla luvulla $n=p+2$, joka muodostaa lauseen:
+\begin{equation*}
+    L_{p+2} = \frac{1}{3}\cdot (-1)^{p+2}+\frac{2}{3}\cdot 2^{p+2} 
+\end{equation*}
+
+\underline{Induktioaskel:} Tutkitaan lukua $L_{p+2}$ hyödyntäen määritelmän rekursioyhtälöä ja induktio-oletusta:
+\begin{align*}
+    L_{p+2}&=L_{p+1}+2L_p\\
+    &\stackrel{\text{IO}}{=}(\frac{1}{3}\cdot (-1)^{p+1}+\frac{2}{3}\cdot 2^{p+1})+2\cdot (\frac{1}{3}\cdot (-1)^p+\frac{2}{3}\cdot 2^p)\\
+    &=\frac{1}{3}\cdot (-1)^{p+1}+\frac{2}{3}\cdot 2^{p+1}+2\cdot \frac{1}{3}\cdot (-1)^p+2\cdot \frac{2}{3}\cdot 2^p\\
+    &=(\frac{1}{3}\cdot (-1)^{p+1}+2\cdot \frac{1}{3}\cdot (-1)^p)+(\frac{2}{3}\cdot 2^{p+1}+2\cdot \frac{2}{3}\cdot 2^p)\\
+    &=(\frac{1}{3}\cdot -1\cdot (-1)^{p}+2\cdot \frac{1}{3}\cdot (-1)^p)+(\frac{2}{3}\cdot 2\cdot 2^{p}+2\cdot \frac{2}{3}\cdot 2^p)\\
+    &=(-\frac{1}{3}\cdot (-1)^p+\frac{2}{3}\cdot(-1)^p)+(\frac{4}{3}\cdot 2^p+\frac{4}{3}\cdot 2^p)\\
+    &=(\frac{1}{3}\cdot(-1)^p)+(\frac{8}{3}\cdot 2^p)\\
+    &=(\frac{1}{3}\cdot(-1)^p\cdot (-1)^2)+(\frac{2\cdot 4}{3}\cdot 2^p)\\
+    &=(\frac{1}{3}\cdot(-1)^{p+2})+(\frac{2}{3}\cdot 4\cdot 2^p)\\
+    &=(\frac{1}{3}\cdot(-1)^{p+2})+(\frac{2}{3}\cdot 2^2\cdot 2^p)\\
+    &=\frac{1}{3}\cdot(-1)^{p+2}+\frac{2}{3}\cdot 2^{p+2}.\\
+\end{align*}
+
+Nyt induktio-oletuksen avulla saatu yhtälön oikea puoli vastaa induktioväitettä.
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että $L_n=\frac{1}{3}\cdot (-1)^n+\frac{2}{3}\cdot 2^n$ kaikilla $n \in \N$. 
+
+\item 
+\begin{enumerate}
+    \item Osoita, että \\
+$$\sqrt{n+1}-\sqrt{n}=\frac{1}{\sqrt{n+1}+\sqrt{n}}.$$
+
+    \item Osoita induktiolla, että
+    $$\sum_{j=1}^n \frac{1}{\sqrt{j}} \leq 2\sqrt{n}.$$ \\ 
+    
+    (Vihje: a)-kohta on hyödyllinen todistuksen loppuun saattamisessa.)
+\end{enumerate}
+
+\textbf{Vastaus (a):} Kerrotaan vasen puoli ykkösellä, joka on muodossa $\frac{\sqrt{n+1}+\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}$. Saadaan:
+\begin{align*}
+    &\frac{(\sqrt{n+1}-\sqrt{n})\cdot (\sqrt{n+1}+\sqrt{n})}{\sqrt{n+1}+\sqrt{n}}\\
+    &=\frac{\sqrt{n+1}^2-\sqrt{n}^2}{\sqrt{n+1}+\sqrt{n}}\\
+    &=\frac{n+1-n}{\sqrt{n+1}+\sqrt{n}}\\
+    &=\frac{1}{\sqrt{n+1}+\sqrt{n}}
+\end{align*}
+Näin molemmat puolet on saatu samoiksi:
+\begin{equation*}
+    \frac{1}{\sqrt{n+1}+\sqrt{n}}=\frac{1}{\sqrt{n+1}+\sqrt{n}},
+\end{equation*}
+ja lause on täten osoitettu todeksi. 
+
+\textbf{Vastaus (b):} 
+
+\underline{Alkuaskel:} Kun $n=1$, saadaan $$\sum_{j=1}^1 \frac{1}{\sqrt{j}} \leq 2\sqrt{1}.$$ Vasemmasta puolesta tulee $\frac{1}{\sqrt{1}}=1$, ja oikeasta puolesta tulee $2\sqrt{1}=2$. Tuloksena on $1\leq2$, eli alkuaskel on ok.
+
+\underline{Induktio-oletus:}  Oletetaan $k\in \N$ ja $$\sum_{j=1}^k \frac{1}{\sqrt{j}} \leq 2\sqrt{k}$$
+kaikilla $k\geq 1$.
+
+\underline{Induktioaskel:} Osoitetaan, että väite pätee myös luonnollisella luvulla $k+1$ ja lauseella $$\sum_{j=1}^{k+1} \frac{1}{\sqrt{j}} \leq 2\sqrt{k+1}.$$ Tutkitaan lausetta hyödyntäen induktio-oletusta:
+\begin{align*}
+    \sum_{j=1}^{k+1} \frac{1}{\sqrt{j}}&=\sum_{j=1}^{k} \frac{1}{\sqrt{j}}+\frac{1}{\sqrt{k+1}}\\
+    &\stackrel{\text{IO}}{\leq}2\sqrt{k}+\frac{1}{\sqrt{k+1}}.
+\end{align*}
+Nyt katsomme saammeko todistettua induktio-oletuksella saadun epäyhtälön oikean puolen olevan pienempi tai yhtä suuri kuin induktioväitteen epäyhtälön oikea puoli:
+\begin{align*}
+    2\sqrt{k}+\frac{1}{\sqrt{k+1}}&\leq 2\sqrt{k+1}\\
+    \frac{1}{\sqrt{k+1}}&\leq 2\sqrt{k+1}-2\sqrt{k}\\
+    \frac{1}{\sqrt{k+1}}&\leq 2(\sqrt{k+1}-\sqrt{k})\\
+    \frac{1}{\sqrt{k+1}}&\leq 2(\frac{1}{\sqrt{k+1}+\sqrt{k}})\quad \text{(sijoitus (a)-kohdasta)}\\
+    \frac{2}{2\sqrt{k+1}}&\leq \frac{2}{\sqrt{k+1}+\sqrt{k}}\\
+    \frac{2}{\sqrt{k+1}+\sqrt{k+1}}&\leq \frac{2}{\sqrt{k+1}+\sqrt{k}}\\.
+\end{align*}
+Edellisestä nähdään, että vasen puoli on pienempi kuin oikea puoli, koska $\sqrt{k+1} > \sqrt{k}$. Vasemman puolen nimittäjä on suurempi, joten murtoluku on pienempi. Väite on siis tosi. 
+
+\underline{Johtopäätös:} Alkuaskeleesta ja induktioaskeleesta seuraa induktioperiaatteen nojalla, että $$\sum_{j=1}^n \frac{1}{\sqrt{j}} \leq 2\sqrt{n}.$$ \vspace{1em}
+
+\item 
+
+\begin{enumerate}
+    \item Kirjoita napakoordinaateissa: $-5\sqrt{2}-5\sqrt{2}i$.
+   
+    \textbf{Vastaus:}$|z| = \sqrt{(-5\sqrt{2})^2+(-5\sqrt{2})^2}= 10$. Koska x- ja i-arvot ovat negatiiviset ja yhtä suuret, muodostuu kompleksitason vasemman alalaidan neljännekseen 45 asteen kulma, kun katsotaan itseisarvon suoraa suhteessa x- ja y-akseliin. Tähän lisätään 180 astetta, joten napakoordinaattimuodoksi saadaan:
+    \begin{equation*}
+        10(\cos(\frac{5}{4}\pi)+i\sin(\frac{5}{4}\pi)).
+    \end{equation*}
+    
+    \item Kirjoita eksponenttimuodossa: $1-i$.
+  
+    \textbf{Vastaus:} $|z| = \sqrt{1^2+(-1)^2}=\sqrt{2}$. Sijainti on kompleksitason oikeassa alaneljänneksessä, ja x- ja i-arvot ovat yhtä suuret, joten kulma on -45 astetta. Napaesitys olisi siis $\sqrt{2}(\cos(-\frac{1}{4}\pi)+i\sin(-\frac{1}{4}\pi))$. Ekponenttiesitys on:
+    \begin{equation*}
+        \sqrt{2}e^{-\frac{1}{4}\pi i}.
+    \end{equation*}
+
+    
+    \item Jos $5e^{(\pi+\pi/4)i}$ piirret\"a\"an kompleksitasoon, niin miss\"a nelj\"anneksess\"a se sijaitsee?
+
+    \textbf{Vastaus:} Se sijaitsee kompleksitason vasemman alalaidan neljänneksessä. Koska vaihekulma $\phi$ on $\pi+\frac{\pi}{4}$, kierretään asteita nollasta 180 astetta + 45 astetta. 
+    
+    \item Kirjoita $3e^{(\pi-\pi/3)i}$ muodossa $a+bi$.
+
+    \textbf{Vastaus:} Napamuodossa: $3(\cos(\frac{2\pi}{3})+i\sin(\frac{2\pi}{3}))$. Katsotaan muistikolmioista relevanttien komponenttien arvot: $\sin(\frac{\pi}{3})=\frac{\frac{\sqrt{3}}{2}}{1}=\frac{\sqrt{3}}{2}$ ja $\cos(\frac{\pi}{3})=\frac{\frac{1}{2}}{1}=\frac{1}{2}$. Koska $\frac{2\pi}{3}$ on näiden peilikuva, saadaan reaaliosan arvoksi $3\cdot-\frac{1}{2}=-\frac{3}{2}$ ja imaginaariosan arvoksi $3\cdot\frac{\sqrt{3}}{2}=\frac{3\sqrt{3}}{2}$. Vastaus on siis:
+    \begin{equation*}
+        -\frac{3}{2}+\frac{3\sqrt{3}}{2}i.
+    \end{equation*}
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

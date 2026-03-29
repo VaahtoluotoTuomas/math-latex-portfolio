@@ -1,0 +1,146 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{JYM-harj}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0in}
+
+\setlength{\voffset}{-1.0cm}
+\addtolength{\textheight}{2.0cm}
+
+\setlength{\hoffset}{-1.0cm}
+\addtolength{\textwidth}{2.0cm}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{hyperref}
+
+%\usepackage[finnish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,amscd}
+
+
+% 1: Teht\"av\"at
+% 2: Kaikki ratkaisut
+% 3: T\"ahdett\"om\"at ratkaisut
+% 4: T\"ahdelliset ratkaisut
+\newcommand{\tversio}{1}
+
+\newcommand{\harjoitusnro}{5}
+
+\ifthenelse{\tversio = 1}{\pagestyle{empty}}{}
+
+\begin{document} 
+
+\otsikko
+
+\begin{enumerate}
+\item Määrätään relaatio $R$ asettamalla 
+\begin{enumerate}
+    \item x on y:n isä
+    \item x on y:n ystävä
+    \item x on y:n jälkeläinen
+\end{enumerate}
+Onko relaatio $R$ refleksiivinen, symmetrinen tai transitiivinen? \\
+
+\textbf{Vastaus:} 
+\begin{enumerate}
+    \item Relaatio R ei ole refleksiivinen, symmetrinen eikä transitiivinen. 
+    \item Relaatio R ei ole refleksiivinen eikä transitiivinen, mutta se on symmetrinen.
+    \item Relaatio R ei ole refleksiivinen eikä symmetrinen, mutta se on transitiivinen. 
+\end{enumerate}
+\vspace{1em}
+
+\item M\"a\"aritell\"a\"an relaatio $R$ reaalilukujen joukossa ehdolla $xRy$, jos $|x-y|\leq 4$. Onko relaatio
+\begin{enumerate}
+    \item refleksiivinen?
+    \item symmetrinen?
+    \item transitiivinen?
+\end{enumerate}
+Perustele.
+
+\textbf{Vastaus:}
+
+\begin{enumerate}
+    \item Relaatio R on refleksiivinen, koska tilanteessa $xRx$ suoritetaan lasku $x-x$, jonka lopputulos on aina nolla, eikä itseisarvo vaikuta tähän. Nolla on pienempi kuin 4, joten R on refleksiivinen. 
+    \item Relaatio R on symmetrinen. Jos lausekkeen $x-y$ itseisarvo on $\leq4$, niin myös lausekkeen $y-x$ itseisarvo on $\leq 4$. Itseisarvon sisällä olevien termien järjestys ei vaikuta lopputulokseen, eli $|x-y|=|y-x|$. 
+    \item Relaatio R ei ole transitiivinen. Otetaan vastaesimerkki ja oletetaan $x=8, y=4$ ja $z=0$. Lausekkeen $8-4$ itseisarvo on $4$, eli relaatio R toteutuu. Lausekkeen $4-0$ itseisarvo on $4$, eli relaatio R toteutuu. Mutta lausekkeen $8-0$ itseisarvo on 8, joten relaatio R ei toteudu. Siis $xRy$ ja $yRz$, mutta $xRz$ ei toimi, joten relaatio R ei ole transitiivinen. 
+\end{enumerate}
+\vspace{1em}
+ 
+\item M\"a\"aritell\"a\"an kokonaislukujen joukossa $\mathbb{Z}$ relaatio $R$ siten, ett\"a $xRy$, jos $x=y$ tai $xy=1$.
+Osoita, ett\"a kyseinen relaatio on ekvivalenssirelaatio, eli ett\"a se on refleksiivinen, symmetrinen ja transitiivinen.
+
+\textbf{Vastaus:}
+
+\underline{Refleksiivisyys:} Oletetaan, että $x\in \Z$. Tällöin $x=x$, siis $xRx$. Tämä päättely pätee millä tahansa kokonaisluvulla, joten jokainen kokonaisluku on relaatiossa R itsensä kanssa. 
+
+\underline{Symmetrisyys:} Oletetaan, että $x, y \in \Z$ ja $xRy$. Tällöin joko $x=y$ tai $xy=1$. Jos $x$ ja $y$ ovat sama luku, toteutuu ehto $x=y$, ja täten $xRy$. Toinen mahdollinen tilanne on se, että lukujen $x$ ja $y$ tulo on $1$. Ainoat lausekkeet, joilla kokonaislukujen tulo on $1$ ovat $-1\cdot-1=1$ ja $1\cdot 1=1$. Näissä tapauksissa relaation R molemmat ehdot täyttyvät, eli luvut ovat sama luku JA niiden tulo on $1$. Relaatio R on siis symmetrinen. 
+
+\underline{Transitiivisuus:} Oletetaan, että $x,y,z \in \Z$ ja lisäksi $xRy$ ja $yRz$. Kuten symmetrisyyden kohdalla todettiin, kokonaislukujen kohdalla relaatio R tarkoittaa aina, että luvut ovat samat, eli $x=y$. Koska $x=y$ ja $y=z$, niin myös $x=z$. Täten $xRz$ on totta. 
+
+Koska relaatio R on refleksiivinen, symmetrinen ja transitiivinen, täytyy sen olla ekvivalenssirelaatio. \vspace{1em}
+
+\item Tarkastellaan edellisen teht\"av\"an relaatiota. 
+M\"a\"arit\"a kyseisen relaation ekvivalenssiluokat. (Oinosen monisteen esimerkkien 6.3.5 ja 6.3.6 huolellisesta lukemisesta voi olla apua.)
+
+\textbf{Vastaus:} Edellisessä tehtävässä tehtiin havainto, että ekvivalenssirelaatio R perustuu sille, että lukujen $x$ ja $y$ täytyy olla sama kokonaisluku, jotta $xRy$ on totta. Tästä johtuen kaikki kokonaisluvut muodostavat oman ekvivalenssiluokkansa, eli luvulle 1 oma ekvivalenssiluokka $[1]_R=\{1\}$, luvulle 2 oma ekvivalenssiluokka $[2]_R=\{2\}$ jne. Koska luvut ovat kokonaislukuja, samanlaiset luokat syntyvät nollalle ja negatiivisille luvuille, eli luvulle $0$ oma ekvivalenssiluokka $[0]_R=\{0\}$, luvulle $-1$ oma ekvivalenssiluokka $[-1]_R=\{-1\}$, luvulle $-2$ oma ekvivalenssiluokka $[-2]_R=\{-2\}$ jne. Eri kokonaisluvut eivät voi kuulua toistensa ekvivalenssiluokkiin. Jos meillä olisi esim. $x=1$ ja $y=2$, saataisiin $1=2$, mikä ei ole enää totta eikä relaatio R enää pätisi. 
+
+Johtopäätös on siis se, että relaatiolle R muodostuu ääretön määrä ekvivalenssiluokkia; jokaiselle kokonaisluvulle muodostuu oma ekvivalenssiluokkansa. 
+\vspace{1em}
+
+\item Tarkastellaan joukossa $A$ m\"a\"aritelty\"a relaatiota $R$. Oletetaan, ett\"a jokainen joukon $A$ alkio on relaatiossa jonkin joukon $A$ alkion kanssa. Osoita, ett\"a jos relaatio $R$ on symmetrinen ja transitiivinen, niin se on my\"os refleksiivinen. 
+
+\textbf{Vastaus:} Oletamme, että relaatio R on määritelty joukolle A, ja lisäksi että jokainen joukon A alkio on relaatiossa jonkin joukon A alkion kanssa. Lisäksi oletamme, että relaatio R on symmetrinen ja transitiivinen. Seuraavaksi osoitetaan, että R on refleksiivinen, eli että kaikilla $a\in A$ pätee $aRa$. 
+
+Oletusten nojalla tiedetään, että on olemassa jokin alkio $b\in A$, ja että $a$ on relaatiossa alkion $b$ kanssa, eli $aRb$. 
+
+Koska relaatio on symmetrinen, voimme kääntää relaation $aRb$ myös toiseen suuntaan, eli $bRa$. Koska relaatio on transitiivinen, voimme soveltaa tätä alkioihin $a,b,a$: koska $aRb$ ja $bRa$, niin $aRa$.
+
+Näin olemme osoittaneet, että $aRa$ pätee kaikilla $a\in A$. Relaatio R on siis refleksiivinen. 
+
+\item 
+\begin{enumerate}
+\item Millainen on niiden kompleksilukujen $z$ joukko, jotka toteuttavat ehdon \\  $|z-2|=3$?
+
+\textbf{Vastaus:} Lause $|z-2|=3$ tarkoittaa tuntemattoman muuttujan $z$ etäisyyttä pisteestä $(2,0)$, ja tämä etäisyys on määritelty $r=3$. Suuntaa ei tiedetä, tai ts. kaikki suunnat ovat mahdollisia. Tehtävän ehdon toteuttava kompleksilukujen joukko on siis sellainen, joka piirtää kompleksitasolle sellaisen ympyrän, jonka keskipiste on kohdassa $(2,0)$, ja jonka säde $r$ on $3$. Kompleksilukujen $z$ joukko on ääretön joukko kompleksitason sijainteja tällaisen ympyrän kehällä, joihin kuuluu muutamia pisteitä mainitakseni esim. $(-1,0)$, $(2,3)$, $(5,0)$ ja $(2,-3)$. 
+
+\item Millainen on niiden kompleksilukujen $z$ joukko, jotka toteuttavat ehdot \\ $|z-2|=3$ ja $|z-1|=3$?
+
+\textbf{Vastaus:} Kuten edellisessä tehtävässä todettiin, niiden kompleksilukujen $z$ joukko, jotka toteuttavat ehdon $|z-2|=3$, sisältää kompleksitasolla kaikki sellaisen ympyrän kehäpisteet, jotka muodostuvat ympyrälle, jonka säde on $3$, ja keskipiste kohdassa $(2,0)$. Merkitään tätä ympyrää kirjaimella $A$. Niiden kompleksilukujen $z$ joukko, jotka toteuttavat ehdon $|z-1|=3$, sisältää taas kaikki sellaisen ympyrän kehäpisteet, jotka muodostuvat ympyrälle, jonka säde on $3$, ja keskipiste kompleksitasolla kohdassa $(1,0)$. Merkitään tätä ympyrää kirjaimella $B$. 
+
+Kompleksilukujen $z$ joukko, jotka toteuttavat ehdot $|z-2|=3$ ja $|z-1|=3$, ovat kaikki ympyröiden $A$ ja $B$ kehäpisteet, jotka sisältyvät leikkaukseen $A \cap B$. Koska ehdot $|z-2|=3$ ja $|z-1|=3$ merkitsevät vain ympyröiden kehiä, eivät niiden sisällä olevia alueita, huomaamme, että ympyröiden kehät leikkaavat toisensa vain kahdessa pisteessä, jotka molemmat sijaitsevat keskipisteiden puolivälissä, jossa $x=1,5$. Kompleksilukujen joukko $z$ koostuu siis kahdesta leikkauspisteestä. \vspace{1em}
+
+\item Sievenn\"a $(x-i)(x+1)(x+i)(x-1)$.
+
+\textbf{Vastaus:}
+
+\begin{align*}
+    (x-i)(x+1)(x+i)(x-1) &= (x-i)(x+i)(x+1)(x-1)\\
+    &=(x^2-i^2)(x^2-1)\\
+    &=(x^2-(-1))(x^2-1)\\
+    &=(x^2+1)(x^2-1)\\
+    &=x^4-x^2+x^2-1\\
+    &=x^4-1
+\end{align*}
+
+
+\item Sievenn\"a $(x-2i)(x+2i)(x-2)(x+2)$.
+
+\textbf{Vastaus:} 
+\begin{align*}
+    (x-2i)(x+2i)(x-2)(x+2)&=(x^2-(2i)^2)(x^2-2^2)\\
+    &=(x^2-4i^2)(x^2-2^2)\\
+    &=(x^2-4\cdot (-1))(x^2-4)\\
+    &=(x^2-4)(x^2+4)\\
+    &=x^4-16
+\end{align*}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
